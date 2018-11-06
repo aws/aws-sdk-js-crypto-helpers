@@ -1,0 +1,22 @@
+{
+  "lerna": "2.11.0",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent",
+  "command": {
+    "bootstrap": {
+      "nohoist": [
+        "@types/*",
+        "typedoc",
+        "karma*"
+      ]
+    }
+  },
+  "hoist": true,
+  "nohoist": [
+    "@types/*",
+    "typedoc",
+    "karma*"
+  ]
+}

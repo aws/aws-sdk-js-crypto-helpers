@@ -1,0 +1,38 @@
+{
+  "name": "@aws-crypto/random-source-universal",
+  "version": "0.0.1",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "mocha --require ts-node/register test/**/*test.ts"
+  },
+  "author": {
+    "name": "AWS Crypto Tools Team",
+    "email": "aws-cryptools@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-crypto/random-source-browser": "^0.0.1",
+    "@aws-crypto/random-source-node": "^0.0.1",
+    "tslib": "^1.9.3",
+    "@aws-sdk/types": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^7.0.12",
+    "@types/sinon": "^5.0.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "sinon": "^6.3.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.1"
+  },
+  "browser": {
+    "@aws/crypto-random-source-node": false
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts"
+}
