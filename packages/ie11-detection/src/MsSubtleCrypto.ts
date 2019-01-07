@@ -2,7 +2,7 @@ import {CryptoOperation} from './CryptoOperation';
 import {Key} from './Key';
 import {KeyOperation} from './KeyOperation';
 
-export type KeyUsage = 'encrypt'|'decrypt'|'sign'|'verify'|'derive'|'wrap'|'unwrap';
+export type KeyUsage = 'encrypt'|'decrypt'|'sign'|'verify'|'derive'|'wrapKey'|'unwrapKey'|'importKey';
 
 export type EncryptionOrVerificationAlgorithm = 'RSAES-PKCS1-v1_5';
 export type Ie11EncryptionAlgorithm = 'AES-CBC'|'AES-GCM'|'RSA-OAEP'|EncryptionOrVerificationAlgorithm;

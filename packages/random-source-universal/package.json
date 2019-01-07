@@ -15,7 +15,7 @@
   "dependencies": {
     "@aws-crypto/random-source-browser": "^0.1.0",
     "@aws-crypto/random-source-node": "^0.1.0",
-    "@aws-sdk/types": "^0.1.0",
+    "@aws-sdk/types": "^0.1.0-preview.1",
     "tslib": "^1.9.3"
   },
   "devDependencies": {

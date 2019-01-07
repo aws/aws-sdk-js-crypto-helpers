@@ -15,12 +15,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0",
-    "@aws-sdk/util-utf8-browser": "^0.1.0",
+    "@aws-sdk/types": "^0.1.0-preview.1",
+    "@aws-sdk/util-utf8-browser": "^0.1.0-preview.1",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
-    "@aws-sdk/util-hex-encoding": "^0.1.0",
+    "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.5",
     "@types/sinon": "^5.0.2",
