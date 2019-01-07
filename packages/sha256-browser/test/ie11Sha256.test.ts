@@ -3,7 +3,7 @@ import 'mocha'
 import {Sha256} from '../src/ie11Sha256';
 import {MsWindow} from '@aws-crypto/ie11-detection';
 import {SHA_256_HMAC_ALGO} from "../src/constants";
-import {flushPromises} from '../src/testUtils.fixture';
+import {flushPromises} from './testUtils.fixture';
 import * as sinon from 'sinon';
 
 import * as utf8Browser from '@aws-sdk/util-utf8-browser'

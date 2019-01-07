@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import 'mocha'
 import {Sha256} from '../src/webCryptoSha256';
 import {EMPTY_DATA_SHA_256, SHA_256_HASH, SHA_256_HMAC_ALGO} from "../src/constants";
-import {flushPromises} from '../src/testUtils.fixture';
+import {flushPromises} from './testUtils.fixture';
 import * as sinon from 'sinon';
 
 import * as utf8Browser from '@aws-sdk/util-utf8-browser';
