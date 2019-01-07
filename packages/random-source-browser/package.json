@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/random-source-browser",
-  "version": "0.1.0",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -13,8 +13,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-crypto/ie11-detection": "^0.1.0",
-    "@aws-crypto/supports-web-crypto": "^0.1.0",
+    "@aws-crypto/ie11-detection": "^0.1.0-preview.1",
+    "@aws-crypto/supports-web-crypto": "^0.1.0-preview.1",
     "@aws-sdk/util-locate-window": "^0.1.0-preview.1",
     "tslib": "^1.9.3"
   },
