@@ -7,10 +7,14 @@
     "pretest": "tsc -p tsconfig.test.json",
     "test": "mocha --require ts-node/register test/**/*test.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aws/aws-javascript-crypto-helpers.git"
+  },
   "author": {
     "name": "AWS Crypto Tools Team",
     "email": "aws-cryptools@amazon.com",
-    "url": "https://aws.amazon.com/javascript/"
+    "url": "https://docs.aws.amazon.com/aws-crypto-tools/index.html?id=docs_gateway#lang/en_us"
   },
   "license": "Apache-2.0",
   "dependencies": {

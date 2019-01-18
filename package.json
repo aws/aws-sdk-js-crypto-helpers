@@ -15,7 +15,11 @@
     "type": "git",
     "url": "git@github.com:aws/aws-javascript-crypto-helpers.git"
   },
-  "author": "aws-cryptools@amazon.com",
+  "author": {
+    "name": "AWS Crypto Tools Team",
+    "email": "aws-cryptools@amazon.com",
+    "url": "https://docs.aws.amazon.com/aws-crypto-tools/index.html?id=docs_gateway#lang/en_us"
+  },
   "license": "UNLICENSED",
   "dependencies": {
     "chai": "^4.1.2",
