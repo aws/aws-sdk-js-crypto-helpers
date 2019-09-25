@@ -1,11 +1,11 @@
-# @aws/crypto-sha256-universal
+# @aws-crypto/crypto-sha256-universal
 
 A consistent interface for SHA256 across browsers and NodeJs
 
 ## Usage
 
 ```
-import {Sha256} from '@aws/crypto-sha256-universal'
+import {Sha256} from '@aws-crypto/crypto-sha256-universal'
 
 const hash = new Sha256();
 hash.update('some data');

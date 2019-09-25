@@ -1,4 +1,4 @@
-# @aws/crypto-random-source-browser
+# @aws-crypto/crypto-random-source-browser
 
 Access to a secure random source in a browser.
 `Math.random` is not acceptable for cryptographic operations.
@@ -8,7 +8,7 @@ and IE11.
 ## Usage
 
 ```
-import {randomValues, randomValuesOnly} from '@aws/crypto-random-source-browser'
+import {randomValues, randomValuesOnly} from '@aws-crypto/crypto-random-source-browser'
 
 const seedData2 = await randomValues(16);
 const seedData1 = await randomValuesOnly(16);
