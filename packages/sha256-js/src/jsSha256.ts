@@ -42,7 +42,10 @@ export class Sha256 implements Hash {
     }
   }
 
-  async digest(): Promise<Uint8Array> {
+  /* This synchronous method keeps compatibility
+   * with the v2 aws-sdk.
+   */
+  digestSync(): Uint8Array {
     if (this.error) {
       throw this.error;
     }
@@ -56,6 +59,15 @@ export class Sha256 implements Hash {
     }
 
     return this.hash.digest();
+  }
+
+  /* The underlying digest method here is synchronous.
+   * To keep the same interface with the other hash functions
+   * the default is to expose this as an async method.
+   * However, it can sometimes be useful to have a sync method.
+   */
+  async digest(): Promise<Uint8Array> {
+    return this.digestSync()
   }
 }
 
