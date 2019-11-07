@@ -10,7 +10,7 @@
   "types": "./build/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:aws/aws-javascript-crypto-helpers.git"
+    "url": "git@github.com:aws/aws-sdk-js-crypto-helpers.git"
   },
   "author": {
     "name": "AWS Crypto Tools Team",
