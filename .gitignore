@@ -1,4 +1,25 @@
-/node_modules
-/package-lock.json
+# Vim swap files
+*~
+*.swp
+*.swo
+
+# OS Artifacts
+.DS_Store
+
+# Artifacts
+build
+node_modules
+package-lock.json
+package.json.decrypt
+
+# VSCode
+.vscode
+.history
+
+# nyc/code coverage
+.nyc_output
+.karma_output
+coverage
+
+# Lerna
 /lerna-debug.log
-/.DS_Store
