@@ -24,7 +24,7 @@
   "dependencies": {
     "chai": "^4.1.2",
     "glob": "^7.1.2",
-    "lerna": "^2.11.0",
+    "lerna": "^3.18.1",
     "mocha": "^5.2.0",
     "rimraf": "^2.6.2",
     "ts-node": "^7.0.1",
