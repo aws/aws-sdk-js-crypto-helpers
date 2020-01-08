@@ -1,0 +1,9 @@
+language: node_js
+  - "12"
+  - "10"
+  - "8"
+
+script:
+  - npm install
+  - npm run bootstrap
+  - npm test
