@@ -22,8 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: |
-        npm install
-        npm run bootstrap
+          npm install
+          npm run bootstrap
       - name: npm test
         env:
           run: npm test
