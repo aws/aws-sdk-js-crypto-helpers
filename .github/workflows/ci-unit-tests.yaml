@@ -21,9 +21,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: |
-          npm install
-          npm run bootstrap
-      - name: npm test
-        env:
-          run: npm test
+      - run: npm ci
+      - run: npm run bootstrap
+      - run: npm test
