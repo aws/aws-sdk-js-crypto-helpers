@@ -20,9 +20,9 @@
     "@aws-crypto/ie11-detection": "^0.1.0-preview.3",
     "@aws-crypto/sha256-js": "^0.1.0-preview.3",
     "@aws-crypto/supports-web-crypto": "^0.1.0-preview.3",
-    "@aws-sdk/types": "^0.1.0-preview.1",
-    "@aws-sdk/util-locate-window": "^0.1.0-preview.1",
-    "@aws-sdk/util-utf8-browser": "^0.1.0-preview.1",
+    "@aws-sdk/types": "^1.0.0-alpha.0",
+    "@aws-sdk/util-locate-window": "^1.0.0-alpha.0",
+    "@aws-sdk/util-utf8-browser": "^1.0.0-alpha.0",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
