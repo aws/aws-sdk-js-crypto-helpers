@@ -1,4 +1,4 @@
-import {Key} from "./Key";
+import { Key } from "./Key";
 
 /**
  * Represents a cryptographic operation that has been instantiated but not
@@ -13,7 +13,7 @@ export interface CryptoOperation {
   oncomplete: (event: Event) => void;
   onerror: (event: Event) => void;
   onprogress: (event: Event) => void;
-  readonly result: ArrayBuffer|undefined;
+  readonly result: ArrayBuffer | undefined;
 
   abort(): void;
   finish(): void;

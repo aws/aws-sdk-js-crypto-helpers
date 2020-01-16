@@ -25,10 +25,7 @@ Does not check for `window.crypto.subtle`.
 
 ## supportsSubtleCrypto
 
-
-
 ## supportsZeroByteGCM
-
 
 ## Test
 

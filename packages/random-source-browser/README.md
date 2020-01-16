@@ -18,7 +18,7 @@ const seedData1 = await randomValuesOnly(16);
 ## randomValues vs randomValuesOnly
 
 Some browsers only implement `crypto.getRandomValues` and not `crypto.subtle`.
-If you need to have access to both, you should use `randomValues`.  But if
+If you need to have access to both, you should use `randomValues`. But if
 you want to use some cryptographic fallback like MSRCrypto `randomValuesOnly`
 is the preferred function.
 

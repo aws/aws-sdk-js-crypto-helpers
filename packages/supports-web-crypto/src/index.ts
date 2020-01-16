@@ -1,1 +1,1 @@
-export * from './supportsWebCrypto';
+export * from "./supportsWebCrypto";

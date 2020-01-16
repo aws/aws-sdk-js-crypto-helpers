@@ -1,16 +1,16 @@
-import {BLOCK_SIZE} from './constants';
-import {RawSha256} from './RawSha256';
-import {Hash, SourceData} from '@aws-sdk/types';
-import {fromUtf8} from '@aws-sdk/util-utf8-browser';
+import { BLOCK_SIZE } from "./constants";
+import { RawSha256 } from "./RawSha256";
+import { Hash, SourceData } from "@aws-sdk/types";
+import { fromUtf8 } from "@aws-sdk/util-utf8-browser";
 
 export class Sha256 implements Hash {
-  private readonly hash = new RawSha256;
+  private readonly hash = new RawSha256();
   private readonly outer?: RawSha256;
   private error: any;
 
   constructor(secret?: SourceData) {
     if (secret) {
-      this.outer = new RawSha256;
+      this.outer = new RawSha256();
       const inner = bufferFromSecret(secret);
       const outer = new Uint8Array(BLOCK_SIZE);
       outer.set(inner);
@@ -67,7 +67,7 @@ export class Sha256 implements Hash {
    * However, it can sometimes be useful to have a sync method.
    */
   async digest(): Promise<Uint8Array> {
-    return this.digestSync()
+    return this.digestSync();
   }
 }
 
@@ -75,7 +75,7 @@ function bufferFromSecret(secret: SourceData): Uint8Array {
   let input = convertToBuffer(secret);
 
   if (input.byteLength > BLOCK_SIZE) {
-    const bufferHash = new RawSha256;
+    const bufferHash = new RawSha256();
     bufferHash.update(input);
     input = bufferHash.digest();
   }
@@ -86,7 +86,7 @@ function bufferFromSecret(secret: SourceData): Uint8Array {
 }
 
 function isEmptyData(data: SourceData): boolean {
-  if (typeof data === 'string') {
+  if (typeof data === "string") {
     return data.length === 0;
   }
 
@@ -94,7 +94,7 @@ function isEmptyData(data: SourceData): boolean {
 }
 
 function convertToBuffer(data: SourceData): Uint8Array {
-  if (typeof data === 'string') {
+  if (typeof data === "string") {
     return fromUtf8(data);
   }
 

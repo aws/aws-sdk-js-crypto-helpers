@@ -1,4 +1,4 @@
-import {Key} from "./Key";
+import { Key } from "./Key";
 
 /**
  * Represents the return of a key-related operation that may or may not have
@@ -9,5 +9,5 @@ import {Key} from "./Key";
 export interface KeyOperation {
   oncomplete: (event: Event) => void;
   onerror: (event: Event) => void;
-  readonly result: Key|undefined;
+  readonly result: Key | undefined;
 }
