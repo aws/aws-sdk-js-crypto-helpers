@@ -1,10 +1,6 @@
-import {
-  randomValues as browserRandomValues
-} from '@aws-crypto/random-source-browser';
-import {
-  randomValues as nodeRandomValues
-} from '@aws-crypto/random-source-node';
-import {randomValues as IRandomValues} from '@aws-sdk/types';
+import { randomValues as browserRandomValues } from "@aws-crypto/random-source-browser";
+import { randomValues as nodeRandomValues } from "@aws-crypto/random-source-node";
+import { randomValues as IRandomValues } from "@aws-sdk/types";
 
 /**
  * @implements {IRandomValues}
@@ -25,7 +21,7 @@ export function randomValues(byteLength: number): Promise<Uint8Array> {
  */
 const supportsCryptoModule: boolean = (() => {
   try {
-    return !!require('crypto').randomBytes;
+    return !!require("crypto").randomBytes;
   } catch {
     return false;
   }

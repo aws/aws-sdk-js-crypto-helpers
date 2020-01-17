@@ -1,5 +1,5 @@
 export function crc32(data: Uint8Array): number {
-  return (new Crc32).update(data).digest();
+  return new Crc32().update(data).digest();
 }
 
 export class Crc32 {
@@ -7,19 +7,19 @@ export class Crc32 {
 
   update(data: Uint8Array): this {
     for (const byte of data) {
-      this.checksum = (this.checksum >>> 8) ^ lookupTable[
-        (this.checksum ^ byte) & 0xff
-      ];
+      this.checksum =
+        (this.checksum >>> 8) ^ lookupTable[(this.checksum ^ byte) & 0xff];
     }
 
     return this;
   }
 
   digest(): number {
-    return (this.checksum ^ 0xffffffff) >>> 0
+    return (this.checksum ^ 0xffffffff) >>> 0;
   }
 }
 
+// prettier-ignore
 const lookupTable = Uint32Array.from([
   0x00000000, 0x77073096, 0xEE0E612C, 0x990951BA,
   0x076DC419, 0x706AF48F, 0xE963A535, 0x9E6495A3,

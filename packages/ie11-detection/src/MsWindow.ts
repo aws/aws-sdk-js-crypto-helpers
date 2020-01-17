@@ -1,16 +1,24 @@
-import {MsSubtleCrypto} from "./MsSubtleCrypto";
+import { MsSubtleCrypto } from "./MsSubtleCrypto";
 
-type SubtleCryptoMethod = 'decrypt'|'digest'|'encrypt'|'exportKey'|'generateKey'|'importKey'|'sign'|'verify';
+type SubtleCryptoMethod =
+  | "decrypt"
+  | "digest"
+  | "encrypt"
+  | "exportKey"
+  | "generateKey"
+  | "importKey"
+  | "sign"
+  | "verify";
 
 const msSubtleCryptoMethods: Array<SubtleCryptoMethod> = [
-  'decrypt',
-  'digest',
-  'encrypt',
-  'exportKey',
-  'generateKey',
-  'importKey',
-  'sign',
-  'verify',
+  "decrypt",
+  "digest",
+  "encrypt",
+  "exportKey",
+  "generateKey",
+  "importKey",
+  "sign",
+  "verify"
 ];
 
 /**
@@ -31,8 +39,7 @@ export interface MsWindow extends Window {
 }
 
 function quacksLikeAnMsWindow(window: Window): window is MsWindow {
-  return 'MSInputMethodContext' in window &&
-      'msCrypto' in window;
+  return "MSInputMethodContext" in window && "msCrypto" in window;
 }
 
 /**
@@ -41,11 +48,11 @@ function quacksLikeAnMsWindow(window: Window): window is MsWindow {
  */
 export function isMsWindow(window: Window): window is MsWindow {
   if (quacksLikeAnMsWindow(window) && window.msCrypto.subtle !== undefined) {
-    const {getRandomValues, subtle} = window.msCrypto;
+    const { getRandomValues, subtle } = window.msCrypto;
     return msSubtleCryptoMethods
       .map<Function>(methodName => subtle[methodName])
       .concat(getRandomValues)
-      .every(method => typeof method === 'function')
+      .every(method => typeof method === "function");
   }
 
   return false;

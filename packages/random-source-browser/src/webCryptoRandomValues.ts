@@ -1,7 +1,7 @@
 interface IRandomValues {
   (byteLength: number): Promise<Uint8Array>;
 }
-import {locateWindow} from '@aws-sdk/util-locate-window';
+import { locateWindow } from "@aws-sdk/util-locate-window";
 
 /**
  * @implements {IRandomValues}

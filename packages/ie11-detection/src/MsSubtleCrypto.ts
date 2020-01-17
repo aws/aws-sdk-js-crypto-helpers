@@ -1,19 +1,31 @@
-import {CryptoOperation} from './CryptoOperation';
-import {Key} from './Key';
-import {KeyOperation} from './KeyOperation';
+import { CryptoOperation } from "./CryptoOperation";
+import { Key } from "./Key";
+import { KeyOperation } from "./KeyOperation";
 
-export type KeyUsage = 'encrypt'|'decrypt'|'sign'|'verify'|'derive'|'wrapKey'|'unwrapKey'|'importKey';
+export type KeyUsage =
+  | "encrypt"
+  | "decrypt"
+  | "sign"
+  | "verify"
+  | "derive"
+  | "wrapKey"
+  | "unwrapKey"
+  | "importKey";
 
-export type EncryptionOrVerificationAlgorithm = 'RSAES-PKCS1-v1_5';
-export type Ie11EncryptionAlgorithm = 'AES-CBC'|'AES-GCM'|'RSA-OAEP'|EncryptionOrVerificationAlgorithm;
-export type Ie11DigestAlgorithm = 'SHA-1'|'SHA-256'|'SHA-384';
+export type EncryptionOrVerificationAlgorithm = "RSAES-PKCS1-v1_5";
+export type Ie11EncryptionAlgorithm =
+  | "AES-CBC"
+  | "AES-GCM"
+  | "RSA-OAEP"
+  | EncryptionOrVerificationAlgorithm;
+export type Ie11DigestAlgorithm = "SHA-1" | "SHA-256" | "SHA-384";
 
 export interface HashAlgorithm {
   name: Ie11DigestAlgorithm;
 }
 
 export interface HmacAlgorithm {
-  name: 'HMAC';
+  name: "HMAC";
   hash: HashAlgorithm;
 }
 
@@ -45,13 +57,10 @@ export interface MsSubtleCrypto {
     buffer?: ArrayBufferView
   ): CryptoOperation;
 
-  exportKey(
-    format: string,
-    key: Key
-  ): KeyOperation;
+  exportKey(format: string, key: Key): KeyOperation;
 
   generateKey(
-    algorithm: SigningAlgorithm|Ie11EncryptionAlgorithm,
+    algorithm: SigningAlgorithm | Ie11EncryptionAlgorithm,
     extractable?: boolean,
     keyUsages?: Array<KeyUsage>
   ): KeyOperation;
@@ -67,11 +76,11 @@ export interface MsSubtleCrypto {
   sign(
     algorithm: SigningAlgorithm,
     key: Key,
-    buffer?: ArrayBufferView,
+    buffer?: ArrayBufferView
   ): CryptoOperation;
 
   verify(
-    algorithm: SigningAlgorithm|EncryptionOrVerificationAlgorithm,
+    algorithm: SigningAlgorithm | EncryptionOrVerificationAlgorithm,
     key: Key,
     signature: ArrayBufferView,
     buffer?: ArrayBufferView

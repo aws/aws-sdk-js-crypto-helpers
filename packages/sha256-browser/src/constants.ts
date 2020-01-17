@@ -1,7 +1,7 @@
-export const SHA_256_HASH: {name: 'SHA-256'} = {name: 'SHA-256'};
+export const SHA_256_HASH: { name: "SHA-256" } = { name: "SHA-256" };
 
-export const SHA_256_HMAC_ALGO: {name: 'HMAC', hash: {name: 'SHA-256'} } = {
-  name: 'HMAC',
+export const SHA_256_HMAC_ALGO: { name: "HMAC"; hash: { name: "SHA-256" } } = {
+  name: "HMAC",
   hash: SHA_256_HASH
 };
 
@@ -37,5 +37,5 @@ export const EMPTY_DATA_SHA_256 = new Uint8Array([
   120,
   82,
   184,
-  85,
+  85
 ]);

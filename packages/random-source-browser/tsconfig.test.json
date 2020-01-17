@@ -6,8 +6,6 @@
     "inlineSources": true,
     "sourceRoot": "./src",
     "outDir": "./build",
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   }
 }
