@@ -5,7 +5,6 @@
   "description": "AWS encryption helpers for javascript",
   "main": "index.js",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "clean": "npm run clear-build-cache && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build/*",
     "pretest": "lerna run pretest",
@@ -22,22 +21,40 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "chai": "^4.1.2",
-    "glob": "^7.1.2",
-    "lerna": "^3.18.1",
-    "mocha": "^5.2.0",
-    "rimraf": "^2.6.2",
-    "ts-node": "^7.0.1",
-    "tslib": "^1.9.3",
-    "typescript": "^3.0.1"
+    "@aws-crypto/crc32": "file:packages/crc32",
+    "@aws-crypto/ie11-detection": "file:packages/ie11-detection",
+    "@aws-crypto/random-source-browser": "file:packages/random-source-browser",
+    "@aws-crypto/random-source-node": "file:packages/random-source-node",
+    "@aws-crypto/random-source-universal": "file:packages/random-source-universal",
+    "@aws-crypto/sha256-browser": "file:packages/sha256-browser",
+    "@aws-crypto/sha256-js": "file:packages/sha256-js",
+    "@aws-crypto/sha256-universal": "file:packages/sha256-universal",
+    "@aws-crypto/supports-web-crypto": "file:packages/supports-web-crypto"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
+    "@aws-sdk/util-buffer-from": "^1.0.0-alpha.0",
+    "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.0",
+    "@aws-sdk/util-utf8-universal": "^1.0.0-alpha.0",
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^7.0.12",
+    "@types/sinon": "^5.0.2",
+    "chai": "^4.1.2",
+    "glob": "^7.1.2",
     "husky": "^4.0.10",
+    "lerna": "^3.20.2",
     "lint-staged": "^9.5.0",
-    "prettier": "1.19.1"
+    "mocha": "^5.2.0",
+    "nyc": "^15.0.0",
+    "prettier": "1.19.1",
+    "rimraf": "^2.6.2",
+    "sinon": "^6.3.4",
+    "ts-node": "^7.0.1",
+    "tslib": "^1.9.3",
+    "typescript": "^3.0.1"
   },
   "husky": {
     "hooks": {
