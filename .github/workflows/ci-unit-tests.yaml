@@ -21,6 +21,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: npm ci
-      - run: npm run bootstrap
+      - uses: bahmutov/npm-install@v1
       - run: npm test

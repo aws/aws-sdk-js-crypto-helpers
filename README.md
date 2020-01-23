@@ -51,7 +51,6 @@ To run the tests in every package.
 
 ```
 npm install
-npm run bootstrap
 npm test
 ```
 
