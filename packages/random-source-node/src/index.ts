@@ -6,7 +6,7 @@ import { randomValues as IRandomValues } from "@aws-sdk/types";
  */
 export function randomValues(byteLength: number): Promise<Uint8Array> {
   return new Promise<Buffer>((resolve, reject) => {
-    randomBytes(byteLength, (err: Error, buf: Buffer) => {
+    randomBytes(byteLength, (err: Error | null, buf: Buffer) => {
       if (err) {
         reject(err);
       } else {
