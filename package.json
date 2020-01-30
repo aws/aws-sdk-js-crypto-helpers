@@ -39,7 +39,7 @@
     "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.0",
     "@aws-sdk/util-utf8-universal": "^1.0.0-alpha.0",
     "@types/chai": "^4.1.4",
-    "@types/mocha": "^5.2.5",
+    "@types/mocha": "^7.0.1",
     "@types/node": "^13.5.1",
     "@types/sinon": "^7.5.1",
     "chai": "^4.1.2",
