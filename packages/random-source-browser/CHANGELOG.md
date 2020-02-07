@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/random-source-browser@0.1.0-preview.4...@aws-crypto/random-source-browser@1.0.0-alpha.0) (2020-02-07)
+
+**Note:** Version bump only for package @aws-crypto/random-source-browser
+
+
+
+
+
 # [0.1.0-preview.4](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/random-source-browser@0.1.0-preview.2...@aws-crypto/random-source-browser@0.1.0-preview.4) (2020-01-16)
 
 
