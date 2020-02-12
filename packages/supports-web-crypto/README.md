@@ -1,11 +1,11 @@
-# @aws-crypto/crypto-supports-web-crypto
+# @aws-crypto/supports-web-crypto
 
 Functions to check web crypto support for browsers.
 
 ## Usage
 
 ```
-import {supportsWebCrypto} from '@aws-crypto/crypto-supports-web-crypto';
+import {supportsWebCrypto} from '@aws-crypto/supports-web-crypto';
 
 if (supportsWebCrypto(window)) {
   // window.crypto.subtle.encrypt will exist

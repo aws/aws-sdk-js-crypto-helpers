@@ -5,7 +5,7 @@ A pure JS implementation SHA256.
 ## Usage
 
 ```
-import {Sha256} from '@aws-crypto/crypto-sha256-js';
+import {Sha256} from '@aws-crypto/sha256-js';
 
 const hash = new Sha256();
 hash.update('some data');
