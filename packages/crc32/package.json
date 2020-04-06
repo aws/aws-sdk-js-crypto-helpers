@@ -19,6 +19,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "^1.9.3"
+    "tslib": "^1.11.1"
   }
 }
