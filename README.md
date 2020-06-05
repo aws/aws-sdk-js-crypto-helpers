@@ -2,6 +2,8 @@
 
 AWS Cryptographic Helpers for Javascript and Node.js
 
+[Security issue notifications](./CONTRIBUTING.md#security-issue-notifications)
+
 ## Scope
 
 This repository collects cryptographic helper packages. We have designed it to gather packages that implement simple primitives for the browser or Node.js. More information about AWS Crypto Tools can be found [here](https://docs.aws.amazon.com/aws-crypto-tools/index.html?id=docs_gateway#lang/en_us)
