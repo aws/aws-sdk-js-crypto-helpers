@@ -21,6 +21,6 @@
   "dependencies": {
     "@aws-sdk/types": "^1.0.0-gamma.1",
     "@aws-sdk/util-utf8-browser": "^1.0.0-gamma.1",
-    "tslib": "^1.11.1"
+    "tslib": "^2.0.1"
   }
 }
