@@ -7,7 +7,7 @@
     "sourceMap": true,
     "declaration": true,
     "stripInternal": true,
-    "sourceRoot": "./src",
+    "rootDir": "./src",
     "outDir": "./build",
     "importHelpers": true,
     "noEmitHelpers": true
