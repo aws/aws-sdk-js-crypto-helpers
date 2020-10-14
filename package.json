@@ -19,7 +19,7 @@
     "email": "aws-cryptools@amazon.com",
     "url": "https://docs.aws.amazon.com/aws-crypto-tools/index.html?id=docs_gateway#lang/en_us"
   },
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/crc32": "file:packages/crc32",
     "@aws-crypto/ie11-detection": "file:packages/ie11-detection",
