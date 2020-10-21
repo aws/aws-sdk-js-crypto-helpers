@@ -22,5 +22,8 @@
     "@aws-sdk/types": "^1.0.0-rc.1",
     "@aws-sdk/util-utf8-browser": "^1.0.0-rc.1",
     "tslib": "^1.11.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

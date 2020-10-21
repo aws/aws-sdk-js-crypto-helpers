@@ -21,5 +21,8 @@
     "@aws-sdk/types": "^1.0.0-rc.1",
     "tslib": "^1.11.1"
   },
-  "types": "./build/index.d.ts"
+  "types": "./build/index.d.ts",
+  "engines": {
+    "node": ">=10.0.0"
+  }
 }
