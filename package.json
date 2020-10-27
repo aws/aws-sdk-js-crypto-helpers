@@ -35,10 +35,10 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@aws-sdk/util-hex-encoding": "^1.0.0-rc.1",
-    "@aws-sdk/util-utf8-browser": "^1.0.0-rc.1",
+    "@aws-sdk/util-hex-encoding": "^1.0.0-rc.2",
+    "@aws-sdk/util-utf8-browser": "^1.0.0-rc.2",
     "@types/chai": "^4.2.12",
-    "@types/mocha": "^7.0.2",
+    "@types/mocha": "^8.0.3",
     "@types/node": "^14.0.27",
     "@types/sinon": "^9.0.4",
     "chai": "^4.2.0",
@@ -46,11 +46,11 @@
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
-    "mocha": "^7.2.0",
+    "mocha": "^8.2.0",
     "nyc": "^15.1.0",
-    "prettier": "2.0.4",
+    "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
-    "sinon": "^9.0.2",
+    "sinon": "^9.2.0",
     "ts-node": "^8.10.2",
     "tslib": "^1.13.0",
     "typescript": "^3.9.7"
