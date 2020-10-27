@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/crc32@1.0.0-alpha.0...@aws-crypto/crc32@1.0.0) (2020-10-22)
+
+**Note:** Version bump only for package @aws-crypto/crc32
+
+
+
+
+
 # [1.0.0-alpha.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/crc32@0.1.0-preview.4...@aws-crypto/crc32@1.0.0-alpha.0) (2020-02-07)
 
 **Note:** Version bump only for package @aws-crypto/crc32
