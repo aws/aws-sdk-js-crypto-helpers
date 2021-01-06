@@ -19,8 +19,10 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "file:../sha256-browser",
     "@aws-sdk/hash-node": "^3.0.0",
-    "@aws-sdk/types": "^3.0.0",
     "tslib": "^1.11.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/types": "^3.0.0"
   },
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
