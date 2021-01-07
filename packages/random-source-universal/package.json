@@ -21,9 +21,6 @@
     "@aws-crypto/random-source-node": "file:../random-source-node",
     "tslib": "^1.11.1"
   },
-  "devDependencies": {
-    "@aws-sdk/types": "^3.0.0"
-  },
   "browser": {
     "@aws/crypto-random-source-node": false
   },
