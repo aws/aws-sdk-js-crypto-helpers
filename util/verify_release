@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+// Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+
+// A very simple script to verify that a package can be installed and imported.
+// Intended primarily as a basic smoke test after publishing.
+
+const { execSync } = require('child_process')
+const tmp = require('tmp')
+
+const package = process.argv[2]
+const version = process.argv[3]
+
+// Create a temporary directory to act as a dummy consuming project.
+// It's important not to use the current directory because npm will
+// walk the file tree upwards and potentially find unrelated node_modules directories!
+const projectDir = tmp.dirSync();
+
+// Manually install the dependency
+execSync(`npm install --prefix ${projectDir.name} ${package}@${version}`)
+
+// Verify that it can be imported. This also ensures that types are available correctly.
+execSync(`ts-node -e "import * as everything from '${package}'"`)
