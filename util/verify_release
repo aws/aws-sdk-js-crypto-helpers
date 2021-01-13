@@ -6,18 +6,30 @@
 // Intended primarily as a basic smoke test after publishing.
 
 const { execSync } = require('child_process')
+const path = require('path');
 const tmp = require('tmp')
+var fs = require('fs');
 
-const package = process.argv[2]
-const version = process.argv[3]
+const packageDir = process.argv[2]
+const packageConfigFile = path.join(packageDir, "package.json")
+const packageConfig = JSON.parse(fs.readFileSync(packageConfigFile, 'utf8'))
+const packageName = packageConfig.name
+const packageVersion = packageConfig.version
+const releaseIdentifier = `${packageName}@${packageVersion}`
+
+console.log(`\nVerifying ${releaseIdentifier} release...`)
 
 // Create a temporary directory to act as a dummy consuming project.
 // It's important not to use the current directory because npm will
 // walk the file tree upwards and potentially find unrelated node_modules directories!
-const projectDir = tmp.dirSync();
+// TODO-RS: An empty directory triggers several warnings, about things like missing
+// package.json and package-lock.json files. Can we clean this up in the future?
+const consumingPackageDir = tmp.dirSync();
 
 // Manually install the dependency
-execSync(`npm install --prefix ${projectDir.name} ${package}@${version}`)
+execSync(`npm install --prefix ${consumingPackageDir.name} ${releaseIdentifier}`)
 
 // Verify that it can be imported. This also ensures that types are available correctly.
-execSync(`ts-node -e "import * as everything from '${package}'"`)
+execSync(`ts-node -e "import * as everything from '${packageName}'"`)
+
+console.log(`SUCCESS: Verified ${releaseIdentifier} release!`)
