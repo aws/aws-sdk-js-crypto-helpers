@@ -9,7 +9,7 @@
 const { execSync } = require('child_process')
 const path = require('path');
 const tmp = require('tmp')
-var fs = require('fs');
+const fs = require('fs');
 
 const packageDir = process.argv[2]
 const packageConfigFile = path.join(packageDir, "package.json")
