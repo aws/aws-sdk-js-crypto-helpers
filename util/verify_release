@@ -4,6 +4,7 @@
 
 // A very simple script to verify that a package can be installed and imported.
 // Intended primarily as a basic smoke test after publishing.
+// TODO-RS: Work out how to run this against verdaccio for pre-release verification too!
 
 const { execSync } = require('child_process')
 const path = require('path');
