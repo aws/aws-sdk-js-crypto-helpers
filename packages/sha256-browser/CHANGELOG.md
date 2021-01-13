@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/sha256-browser@1.0.0...@aws-crypto/sha256-browser@1.1.0) (2021-01-13)
+
+
+### Bug Fixes
+
+* remove package lock ([6002a5a](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/6002a5ab9218dc8798c19dc205d3eebd3bec5b43))
+* **aws-crypto:** export explicit dependencies on [@aws-types](https://github.com/aws-types) ([6a1873a](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/6a1873a4dcc2aaa4a1338595703cfa7099f17b8c))
+* **deps-dev:** move @aws-sdk/types to devDependencies ([#188](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/188)) ([08efdf4](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/08efdf46dcc612d88c441e29945d787f253ee77d))
+
+
+
+
+
 # [1.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/sha256-browser@1.0.0-alpha.0...@aws-crypto/sha256-browser@1.0.0) (2020-10-22)
 
 **Note:** Version bump only for package @aws-crypto/sha256-browser
