@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/sha256-universal",
-  "version": "1.0.0-alpha.0",
+  "version": "1.1.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -18,8 +18,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/sha256-browser": "file:../sha256-browser",
-    "@aws-sdk/hash-node": "^1.0.0-rc.1",
-    "@aws-sdk/types": "^1.0.0-rc.1",
+    "@aws-sdk/hash-node": "^3.0.0",
+    "@aws-sdk/types": "^3.1.0",
     "tslib": "^1.11.1"
   },
   "main": "./build/index.js",
