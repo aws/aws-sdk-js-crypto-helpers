@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/random-source-node@1.0.0...@aws-crypto/random-source-node@1.1.0) (2021-01-13)
+
+
+### Bug Fixes
+
+* remove package lock ([6002a5a](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/6002a5ab9218dc8798c19dc205d3eebd3bec5b43))
+* **aws-crypto:** export explicit dependencies on [@aws-types](https://github.com/aws-types) ([6a1873a](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/6a1873a4dcc2aaa4a1338595703cfa7099f17b8c))
+
+
+
+
+
 # [1.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/random-source-node@1.0.0-alpha.0...@aws-crypto/random-source-node@1.0.0) (2020-10-22)
 
 

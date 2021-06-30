@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/random-source-browser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@aws-crypto/ie11-detection": "file:../ie11-detection",
     "@aws-crypto/supports-web-crypto": "file:../supports-web-crypto",
-    "@aws-sdk/util-locate-window": "^1.0.0-rc.1",
+    "@aws-sdk/util-locate-window": "^3.0.0",
     "tslib": "^1.11.1"
   },
   "main": "./build/index.js",
