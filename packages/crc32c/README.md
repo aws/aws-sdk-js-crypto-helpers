@@ -1,13 +1,13 @@
-# @aws-crypto/crc32
+# @aws-crypto/crc32c
 
-Pure JS implementation of CRC32 https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+Pure JS implementation of CRC32-C https://en.wikipedia.org/wiki/Cyclic_redundancy_check
 
 ## Usage
 
 ```
-import { Crc32 } from '@aws-crypto/crc32';
+import { Crc32c } from '@aws-crypto/crc32c';
 
-const crc32Digest = (new Crc32).update(buffer).digest()
+const crc32Digest = (new Crc32c).update(buffer).digest()
 
 ```
 
