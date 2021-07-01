@@ -9,7 +9,11 @@ const emptyVector: TestVector = [new Uint8Array(0), 0];
 
 const phraseVector: TestVector = [
   fromUtf8("The quick brown fox jumps over the lazy dog"),
-  0x414fa339
+  0x414fa339,
+];
+const phraseVectorNew: TestVector = [
+  fromUtf8("Sphinx of black quartz, judge my vow."),
+  0xa839a3df,
 ];
 
 const incrementalVectors: Array<TestVector> = [
@@ -21,10 +25,14 @@ const incrementalVectors: Array<TestVector> = [
   [fromUtf8("over "), 2281844364],
   [fromUtf8("the "), 3828401820],
   [fromUtf8("lazy "), 3693501045],
-  [fromUtf8("dog"), 0x414fa339]
+  [fromUtf8("dog"), 0x414fa339],
 ];
 
-const testVectors = new Map<Uint8Array, number>([emptyVector, phraseVector]);
+const testVectors = new Map<Uint8Array, number>([
+  emptyVector,
+  phraseVector,
+  phraseVectorNew,
+]);
 
 describe("Crc32", () => {
   for (const [buffer, expected] of testVectors) {
