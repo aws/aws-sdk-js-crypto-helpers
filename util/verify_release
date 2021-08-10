@@ -6,19 +6,17 @@
 // Intended primarily as a basic smoke test after publishing.
 // TODO-RS: Work out how to run this against verdaccio for pre-release verification too!
 
-const { execSync } = require('child_process')
-const path = require('path');
+const { execSync, spawn } = require('child_process')
 const tmp = require('tmp')
 const fs = require('fs');
+const pipeStdIo = { stdio: [process.stdin, process.stdout, process.stderr] }
+const localVerdaccioRegistry = 'http://localhost:4873/'
+const npmPublicRegistry = 'https://registry.npmjs.org/'
+const mode = process.argv[2]
+if (!['ci', 'public'].includes(mode)) throw new Error(`Unknown mode ${mode}`)
 
-const packageDir = process.argv[2]
-const packageConfigFile = path.join(packageDir, "package.json")
-const packageConfig = JSON.parse(fs.readFileSync(packageConfigFile, 'utf8'))
-const packageName = packageConfig.name
-const packageVersion = packageConfig.version
-const releaseIdentifier = `${packageName}@${packageVersion}`
-
-console.log(`\nVerifying ${releaseIdentifier} release...`)
+const npmRegistry = process.argv[2] === 'ci' ? localVerdaccioRegistry : npmPublicRegistry
+const { name } = JSON.parse(fs.readFileSync("package.json", 'utf8'))
 
 // Create a temporary directory to act as a dummy consuming project.
 // It's important not to use the current directory because npm will
@@ -27,10 +25,35 @@ console.log(`\nVerifying ${releaseIdentifier} release...`)
 // package.json and package-lock.json files. Can we clean this up in the future?
 const consumingPackageDir = tmp.dirSync();
 
+// I am assuming that you used `local_verdaccio_publish`
+// This is to facilitate interacting with a local verdaccio server
+// So... I need a running server
+const verdaccio = spawn('npx', ['verdaccio', '-c', '../../verdaccio/config.yaml'], pipeStdIo)
+  .on('error', e => {
+    throw e
+  })
+// just in case
+process.on('exit', () => {
+  if (!verdaccio.killed) verdaccio.kill()
+})
+
+// Verify the version information
+const version = execSync(`npm info ${name} dist-tags.latest --registry ${npmRegistry}`).toString().trim()
+if (localVerdaccioRegistry === npmRegistry && !version.includes('ci')) {
+  throw new Error('Latest version in Verdaccio is not a ci release.')
+} else if (localVerdaccioRegistry !== npmRegistry && version.includes('ci')) {
+  throw new Error('CI release pushed publicly!')
+}
+
+console.log(`\nVerifying ${name}@${version} release...`)
+
 // Manually install the dependency
-execSync(`npm install --prefix ${consumingPackageDir.name} ${releaseIdentifier}`)
+execSync(`npm install --prefix ${consumingPackageDir.name} ${name} --registry ${npmRegistry}`)
+
+// Kill the background verdaccio server
+verdaccio.kill()
 
 // Verify that it can be imported. This also ensures that types are available correctly.
-execSync(`ts-node -e "import * as everything from '${packageName}'"`)
+const out = execSync(`node -e "console.log(require('${name}'))"`).toString()
 
-console.log(`SUCCESS: Verified ${releaseIdentifier} release!`)
+console.log(`SUCCESS: Verified ${name} release: ${out}`)
