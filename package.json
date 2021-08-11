@@ -24,6 +24,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/crc32": "file:packages/crc32",
+    "@aws-crypto/crc32c": "file:packages/crc32c",
     "@aws-crypto/ie11-detection": "file:packages/ie11-detection",
     "@aws-crypto/random-source-browser": "file:packages/random-source-browser",
     "@aws-crypto/random-source-node": "file:packages/random-source-node",
