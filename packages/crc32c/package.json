@@ -20,5 +20,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "tslib": "^1.11.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
