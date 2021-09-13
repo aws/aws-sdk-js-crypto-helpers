@@ -19,6 +19,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "^1.11.1"
+    "tslib": "^1.11.1",
+    "@aws-sdk/types": "^3.1.0",
+    "@aws-crypto/util": "file:../util"
   }
 }
