@@ -32,7 +32,8 @@
     "@aws-crypto/sha256-browser": "file:packages/sha256-browser",
     "@aws-crypto/sha256-js": "file:packages/sha256-js",
     "@aws-crypto/sha256-universal": "file:packages/sha256-universal",
-    "@aws-crypto/supports-web-crypto": "file:packages/supports-web-crypto"
+    "@aws-crypto/supports-web-crypto": "file:packages/supports-web-crypto",
+    "@aws-crypto/util": "file:packages/util"
   },
   "workspaces": [
     "packages/*"
