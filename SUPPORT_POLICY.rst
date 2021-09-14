@@ -31,7 +31,7 @@ It also shows the next status each major version will transition to, and the dat
     * - 1.x
       - Maintenance
       - End of Support
-      - 2022-07-08
+      - 2022-04-15
     * - 2.x
       - General Availability
 
