@@ -20,6 +20,13 @@ describe("convertToBuffer", () => {
     expect(test).to.deep.equal(new Uint8Array([97, 115, 100, 102]));
   });
 
+  it("should return an empty ArrayBuffer for an empty string", () => {
+    const data = "";
+    const test = convertToBuffer(data);
+
+    expect(test).to.deep.equal(new Uint8Array(0));
+  });
+
   it("should return a Uint8Array with the same buffer", () => {
     const data = new Uint8Array(5).fill(1);
     const test = convertToBuffer(data.buffer);
