@@ -4,7 +4,7 @@ import { Sha256 } from "../src/webCryptoSha256";
 import {
   EMPTY_DATA_SHA_256,
   SHA_256_HASH,
-  SHA_256_HMAC_ALGO
+  SHA_256_HMAC_ALGO,
 } from "../src/constants";
 import { flushPromises } from "./testUtils.fixture";
 import * as sinon from "sinon";
@@ -18,8 +18,8 @@ describe("Sha256", () => {
       subtle: {
         digest: sinon.stub().resolves(new ArrayBuffer(32)),
         importKey: sinon.stub(),
-        sign: sinon.stub().resolves(new ArrayBuffer(32))
-      }
+        sign: sinon.stub().resolves(new ArrayBuffer(32)),
+      },
     };
 
     sinon.stub(utf8Browser, "fromUtf8");
@@ -52,7 +52,7 @@ describe("Sha256", () => {
       key,
       algorithm,
       exportable,
-      permittedUses
+      permittedUses,
     ] = (importKey as sinon.SinonStub).firstCall.args;
 
     expect(type).to.eql("raw");
@@ -73,31 +73,6 @@ describe("Sha256", () => {
     const [_, key] = (importKey as sinon.SinonStub).firstCall.args;
 
     expect(key).to.deep.equal(secret);
-  });
-
-  it("should convert empty string secrets to empty ArrayBuffers", async () => {
-    const { importKey } = locateWindow().crypto.subtle;
-    (utf8Browser.fromUtf8 as sinon.SinonStub).returns(new ArrayBuffer(0));
-
-    const sha256 = new Sha256("");
-    await flushPromises();
-
-    sinon.assert.calledOnce(utf8Browser.fromUtf8 as sinon.SinonStub);
-    const [str] = (utf8Browser.fromUtf8 as sinon.SinonStub).firstCall.args;
-    expect(str).to.eql("");
-
-    const [_, key] = (importKey as sinon.SinonStub).firstCall.args;
-
-    expect(key).to.deep.equal(new ArrayBuffer(0));
-  });
-
-  it("should import string secrets via the browser UTF-8 decoder", async () => {
-    const sha256 = new Sha256("secret");
-    await flushPromises();
-
-    sinon.assert.calledOnce(utf8Browser.fromUtf8 as sinon.SinonStub);
-    const [str] = (utf8Browser.fromUtf8 as sinon.SinonStub).firstCall.args;
-    expect(str).to.eql("secret");
   });
 
   it("should trap UTF-8 errors", async () => {
