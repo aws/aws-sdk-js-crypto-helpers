@@ -21,8 +21,6 @@ const { name } = JSON.parse(fs.readFileSync("package.json", 'utf8'))
 // Create a temporary directory to act as a dummy consuming project.
 // It's important not to use the current directory because npm will
 // walk the file tree upwards and potentially find unrelated node_modules directories!
-// TODO-RS: An empty directory triggers several warnings, about things like missing
-// package.json and package-lock.json files. Can we clean this up in the future?
 const consumingPackageDir = tmp.dirSync();
 
 // I am assuming that you used `local_verdaccio_publish`
@@ -47,13 +45,15 @@ if (localVerdaccioRegistry === npmRegistry && !version.includes('ci')) {
 
 console.log(`\nVerifying ${name}@${version} release...`)
 
+//Init dir in order to have package.json in dummy dir
+execSync(`npm init --yes`, {cwd: consumingPackageDir.name})
 // Manually install the dependency
-execSync(`npm install --prefix ${consumingPackageDir.name} ${name} --registry ${npmRegistry}`)
+execSync(`npm install ${name} --registry ${npmRegistry}`, {cwd: consumingPackageDir.name})
 
 // Kill the background verdaccio server
 verdaccio.kill()
 
 // Verify that it can be imported. This also ensures that types are available correctly.
-const out = execSync(`node -e "console.log(require('${name}'))"`).toString()
+const out = execSync(`node -e "console.log(require('${name}'))"`, {cwd: consumingPackageDir.name}).toString()
 
 console.log(`SUCCESS: Verified ${name} release: ${out}`)
