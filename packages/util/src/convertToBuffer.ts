@@ -6,7 +6,7 @@ import { fromUtf8 as fromUtf8Browser } from "@aws-sdk/util-utf8-browser";
 
 // Quick polyfill
 const fromUtf8 =
-  Buffer && Buffer.from
+  typeof Buffer !== "undefined" && Buffer.from
     ? (input: string) => Buffer.from(input, "utf8")
     : fromUtf8Browser;
 
