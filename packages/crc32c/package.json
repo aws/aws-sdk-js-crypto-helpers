@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/crc32c",
-  "version": "0.2.1",
+  "version": "1.2.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -19,9 +19,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "^1.11.1",
+    "@aws-crypto/util": "file:../util",
     "@aws-sdk/types": "^3.1.0",
-    "@aws-crypto/util": "file:../util"
+    "tslib": "^1.11.1"
   },
   "publishConfig": {
     "access": "public"

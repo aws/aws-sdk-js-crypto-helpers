@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v1.1.1...v1.2.0) (2021-09-17)
+
+
+### Features
+
+* Add AwsCrc32 Hash ([f5d7e81](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/f5d7e815fcbe0f8da1edb855fea3bd33eb1edc15))
+
+
+
+
+
 # [1.1.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/@aws-crypto/crc32@1.0.0...@aws-crypto/crc32@1.1.0) (2021-08-11)
 
 
