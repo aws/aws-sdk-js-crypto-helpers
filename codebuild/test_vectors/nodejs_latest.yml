@@ -17,9 +17,11 @@ phases:
         fi
   build:
     commands:
+      - npm test
       - |-
         if [ "$PUBLISH_LOCAL" = "true" ]; then
           npm run verdaccio-publish
+          npm run verdaccio-verify-publish -- ci
+        else
+          npm run verdaccio-verify-publish -- public
         fi
-      - npm run verdaccio-node-decrypt
-      - npm run verdaccio-node-encrypt

@@ -10,7 +10,3 @@ phases:
       nodejs: latest
     commands:
       - npm ci --unsafe-perm
-  build:
-    commands:
-      - npm run lint
-      - npm run test_conditions
