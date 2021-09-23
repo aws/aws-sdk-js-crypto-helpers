@@ -3,34 +3,30 @@ version: 0.2
 batch:
   fast-fail: true 
   build-graph:
-
-    # Lint and specification compliance
-    - identifier: compliance
-      buildspec: codebuild/compliance.yml
-
     # Unit Tests
-    #NOTE: Unlike the js-esdk we are not testing the browser since we did not
-    #explicitly call that out in the previous code build project. Should we be
-    #testing the browser since we have the blueprint for it?
+    #NOTE: We need to add browser testing as part of our Unit Tests. Look at the
+    #js-esdk for insight on how we do this.
     - identifier: testNodejsLatest
       buildspec: codebuild/nodejs_latest.yml
       env:
         image: aws/codebuild/standard:5.0
 
-    # Integration Tests
-    - identifier: testVectorsNodejsLatest
-      buildspec: codebuild/test_vectors/nodejs_latest.yml
+    # Test publishing to local Verdaccio server
+    - identifier: test_publish
+      depend-on:
+          - testNodejsLatest
+      buildspec: codebuild/test_vectors/test_publish.yml
       env:
         variables:
           PUBLISH_LOCAL: "true"
-        image: aws/codebuild/standard:5.0
+          CI: "true"
+        image: aws/codebuild/codebuild:5.0
 
     # Version the project and push git commits and tags
     - identifier: version
       depend-on:
-        - compliance
         - testNodejsLatest
-        - testVectorsNodejsLatest
+        - test_publish
       buildspec: codebuild/release/version.yml
 
     # Publish the release to npm
@@ -39,13 +35,14 @@ batch:
         - version
       buildspec: codebuild/release/publish.yml
 
-    # Validate that the published versions are available
+    # Validate and test that the published versions are available
     - identifier: validateNodejs
       depend-on:
         - publish
-      buildspec: codebuild/test_vectors/nodejs_latest.yml
+      buildspec: codebuild/test_vectors/test_publish.yml
       env:
         variables:
           PUBLISH_LOCAL: "false"
+          CI: "false"
         image: aws/codebuild/standard:5.0
 

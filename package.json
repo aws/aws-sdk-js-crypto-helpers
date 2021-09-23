@@ -5,7 +5,6 @@
   "description": "AWS encryption helpers for javascript",
   "main": "index.js",
   "scripts": {
-    "build": "run-s build-*",
     "clean": "npm run clear-build-cache && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build/*",
     "pretest": "lerna run pretest",
