@@ -11,4 +11,5 @@ phases:
     commands:
       - node --version ; npm --version
       - npm ci --unsafe-perm
-      - npm test
+  build:
+    - npm test
