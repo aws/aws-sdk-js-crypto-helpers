@@ -1,6 +1,8 @@
 // Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
+import {uint32ArrayFrom} from "@aws-crypto/util";
+
 export function crc32c(data: Uint8Array): number {
   return new Crc32c().update(data).digest();
 }
@@ -58,11 +60,5 @@ const a_lookupTable = [
   0x79B737BA, 0x8BDCB4B9, 0x988C474D, 0x6AE7C44E, 0xBE2DA0A5, 0x4C4623A6, 0x5F16D052, 0xAD7D5351,
 ];
 
-// IE 11 does not support Array.from, so we do it manually
-const lookupTable = new Uint32Array(256);
-let a_index = 0;
-while (a_index < 256) {
-  lookupTable[a_index] = a_lookupTable[a_index];
-  a_index += 1;
-}
+const lookupTable: Uint32Array = uint32ArrayFrom(a_lookupTable)
 export { AwsCrc32c } from "./aws_crc32c";
