@@ -15,11 +15,8 @@ phases:
     commands:
       - npm test
       - |-
-        if [ "$PUBLISH_LOCAL" = "true" ]; then
-          npm run verdaccio-publish
-        fi
-      - |-
         if [ "$CI" = "true" ]; then
+          npm run verdaccio-publish
           npm run verdaccio-verify-publish -- ci
         else
           npm run verdaccio-verify-publish -- public

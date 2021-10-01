@@ -18,7 +18,6 @@ batch:
       buildspec: codebuild/test_vectors/test_publish.yml
       env:
         variables:
-          PUBLISH_LOCAL: "true"
           CI: "true"
         image: aws/codebuild/codebuild:5.0
 
@@ -42,7 +41,6 @@ batch:
       buildspec: codebuild/test_vectors/test_publish.yml
       env:
         variables:
-          PUBLISH_LOCAL: "false"
           CI: "false"
         image: aws/codebuild/standard:5.0
 
