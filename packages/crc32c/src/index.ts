@@ -1,3 +1,8 @@
+// Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+
+import {uint32ArrayFrom} from "@aws-crypto/util";
+
 export function crc32c(data: Uint8Array): number {
   return new Crc32c().update(data).digest();
 }
@@ -20,7 +25,7 @@ export class Crc32c {
 }
 
 // prettier-ignore
-const lookupTable = Uint32Array.from([
+const a_lookupTable = [
   0x00000000, 0xF26B8303, 0xE13B70F7, 0x1350F3F4, 0xC79A971F, 0x35F1141C, 0x26A1E7E8, 0xD4CA64EB,
   0x8AD958CF, 0x78B2DBCC, 0x6BE22838, 0x9989AB3B, 0x4D43CFD0, 0xBF284CD3, 0xAC78BF27, 0x5E133C24,
   0x105EC76F, 0xE235446C, 0xF165B798, 0x030E349B, 0xD7C45070, 0x25AFD373, 0x36FF2087, 0xC494A384,
@@ -53,6 +58,7 @@ const lookupTable = Uint32Array.from([
   0x69E9F0D5, 0x9B8273D6, 0x88D28022, 0x7AB90321, 0xAE7367CA, 0x5C18E4C9, 0x4F48173D, 0xBD23943E,
   0xF36E6F75, 0x0105EC76, 0x12551F82, 0xE03E9C81, 0x34F4F86A, 0xC69F7B69, 0xD5CF889D, 0x27A40B9E,
   0x79B737BA, 0x8BDCB4B9, 0x988C474D, 0x6AE7C44E, 0xBE2DA0A5, 0x4C4623A6, 0x5F16D052, 0xAD7D5351,
-]);
+];
 
+const lookupTable: Uint32Array = uint32ArrayFrom(a_lookupTable)
 export { AwsCrc32c } from "./aws_crc32c";
