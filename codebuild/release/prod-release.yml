@@ -19,7 +19,7 @@ batch:
       env:
         variables:
           CI: "true"
-        image: aws/codebuild/codebuild:5.0
+        image: aws/codebuild/standard:5.0
 
     # Version the project and push git commits and tags
     - identifier: version
