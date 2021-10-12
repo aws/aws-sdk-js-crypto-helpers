@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v1.2.1...v1.2.2) (2021-10-12)
+
+
+### Bug Fixes
+
+* **crc32c:** ie11 does not support Array.from ([#221](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/221)) ([5f49547](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/5f495472ab8988cf203e0f2a70a51f7e1fcd7e60))
+
+
+
+
+
 ## [1.2.1](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v1.2.0...v1.2.1) (2021-09-17)
 
 
