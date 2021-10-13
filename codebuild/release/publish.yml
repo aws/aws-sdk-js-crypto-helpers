@@ -5,8 +5,8 @@ env:
     NODE_OPTIONS: "--max-old-space-size=4096"
     BRANCH: "master"
   secrets-manager:
-     OTP_SECRET_KEY: npm/aws-crypto-tools-ci-bot/2FA:OTP_SECRET_KEY
-     NPM_TOKEN: npm/aws-crypto-tools-ci-bot/2FA:NPM_TOKEN
+    OTP_SECRET_KEY: npm/aws-crypto-tools-ci-bot/2FA:OTP_SECRET_KEY
+    NPM_TOKEN: npm/aws-crypto-tools-ci-bot/2FA:NPM_TOKEN
 
 phases:
   install:
@@ -14,12 +14,14 @@ phases:
       - npm ci --unsafe-perm
       # Install `otplib` to extract the OTP from the npm 2FA secret
       - npm install otplib --no-save
-      - npm run build
-      runtime-versions:
+      - npm test
+    runtime-versions:
       nodejs: 12
+
   pre_build:
     commands:
       - git checkout $BRANCH
+
   build:
     commands:
       # Extract the otp using the secrets environment variables from above.
