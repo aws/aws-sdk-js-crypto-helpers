@@ -10,7 +10,7 @@ The AWS Crypto Helpers follows the same major version lifecycle as the AWS SDK. 
 
 Version Support Matrix
 ======================
-This table describes the current support status of each major version of the AWS Encryption SDK for Javascript. It also shows the next status each major version will transition to, and the date at which that transition will happen.
+This table describes the current support status of each major version of the AWS Crypto Helpers. It also shows the next status each major version will transition to, and the date at which that transition will happen.
 
 .. list-table::
     :widths: 30 50 50 50
