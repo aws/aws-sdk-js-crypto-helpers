@@ -6,7 +6,7 @@ We recommend users to stay up-to-date with AWS Crypto Helpers releases to keep u
 
 Major Version Lifecycle
 ========================
-The AWS Encryption SDK follows the same major version lifecycle as the AWS SDK. For details on this lifecycle, see  `AWS SDKs and Tools Maintenance Policy`_.
+The AWS Crypto Helpers follows the same major version lifecycle as the AWS SDK. For details on this lifecycle, see  `AWS SDKs and Tools Maintenance Policy`_.
 
 Version Support Matrix
 ======================
