@@ -12,8 +12,6 @@ Version Support Matrix
 ======================
 This table describes the current support status of each major version of the AWS Crypto Helpers. It also shows the next status each major version will transition to, and the date at which that transition will happen.
 
-Version 2.x will no longer support Node versions 8 and 10.
-
 .. list-table::
     :widths: 30 50 50 50
     :header-rows: 1
@@ -27,9 +25,9 @@ Version 2.x will no longer support Node versions 8 and 10.
       - End of Support
       - 2022-04-15
     * - 2.x
+      -
       - General Availability
-      -
-      -
+      - 2021-10-21
 
 .. _AWS SDKs and Tools Maintenance Policy: https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html#version-life-cycle
 
