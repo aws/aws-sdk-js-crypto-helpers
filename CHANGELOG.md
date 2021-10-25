@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v1.2.2...v2.0.0) (2021-10-25)
+
+
+* feat!: update support policy for node8 and node10 notice (#249) ([723e6d2](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/723e6d2c386a0bc395b32accd85c3544f03c1d18)), closes [#249](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/249)
+
+
+### BREAKING CHANGES
+
+* Deprecate Node8 and Node10
+
+
+
+
+
 ## [1.2.2](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v1.2.1...v1.2.2) (2021-10-12)
 
 
