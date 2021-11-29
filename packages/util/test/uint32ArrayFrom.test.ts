@@ -17,6 +17,4 @@ describe("uint32ArrayFrom", () =>{
       .to
       .eql(Uint32Array.of(0, 4067132163, 3778769143))
   })
-
-
 })
