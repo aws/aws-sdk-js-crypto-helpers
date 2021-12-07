@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  variables:
+    NODE_OPTIONS: "--max-old-space-size=4096"
+    NPM_CONFIG_UNSAFE_PERM: true
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+    commands:
+      - npm ci
+  build:
+    commands:
+      - npm test
+      - |-
+        if [ "$CI" = "true" ]; then
+          npm run verdaccio-publish
+          npm run verdaccio-verify-publish -- ci
+        else
+          npm run verdaccio-verify-publish -- public
+        fi

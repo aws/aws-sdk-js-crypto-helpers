@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/sha256-browser",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -20,6 +20,7 @@
     "@aws-crypto/ie11-detection": "file:../ie11-detection",
     "@aws-crypto/sha256-js": "file:../sha256-js",
     "@aws-crypto/supports-web-crypto": "file:../supports-web-crypto",
+    "@aws-crypto/util": "file:../util",
     "@aws-sdk/types": "^3.1.0",
     "@aws-sdk/util-locate-window": "^3.0.0",
     "@aws-sdk/util-utf8-browser": "^3.0.0",
