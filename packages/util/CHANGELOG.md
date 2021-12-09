@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v2.0.0...v2.0.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* **uint32ArrayFrom:** increment index & polyfill for Uint32Array ([#270](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/270)) ([a70d603](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/a70d603f3ba7600d3c1213f297d4160a4b3793bd))
+
+
+
+
+
 # [2.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v1.2.2...v2.0.0) (2021-10-25)
 
 **Note:** Version bump only for package @aws-crypto/util
