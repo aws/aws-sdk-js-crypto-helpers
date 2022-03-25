@@ -19,6 +19,6 @@
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "dependencies": {
-    "tslib": "^1.11.1"
+    "tslib": "^2.3.1"
   }
 }
