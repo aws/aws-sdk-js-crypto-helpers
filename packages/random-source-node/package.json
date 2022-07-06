@@ -16,6 +16,7 @@
     "email": "aws-cryptools@amazon.com",
     "url": "https://docs.aws.amazon.com/aws-crypto-tools/index.html?id=docs_gateway#lang/en_us"
   },
+  "homepage": "https://github.com/aws/aws-sdk-js-crypto-helpers/tree/master/packages/random-source-node",
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "^3.110.0",
