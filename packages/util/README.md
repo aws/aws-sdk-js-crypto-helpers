@@ -1,14 +1,14 @@
-# @aws-crypto/crc32c
+# @aws-crypto/util
 
-Pure JS implementation of CRC32-C https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+Helper functions
 
 ## Usage
 
 ```
-import { Crc32c } from '@aws-crypto/crc32c';
+import { convertToBuffer } from '@aws-crypto/util';
 
-const crc32Digest = (new Crc32c).update(buffer).digest()
-
+const data = "asdf";
+const utf8EncodedUint8Array = convertToBuffer(data);
 ```
 
 ## Test
