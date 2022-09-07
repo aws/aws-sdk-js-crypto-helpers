@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/crc32",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
