@@ -82,7 +82,7 @@ describe("Sha256", () => {
 
   idx = 0;
   for (const [key, data, result] of hmacTestVectors) {
-    it("should match known hash calculations: " + idx++, async () => {
+    it("should match known hmac calculations: " + idx++, async () => {
       const hash = new Sha256(key);
       hash.update(data);
       expect(await hash.digest()).to.deep.equal(result);
