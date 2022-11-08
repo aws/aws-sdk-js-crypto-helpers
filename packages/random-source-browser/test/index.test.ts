@@ -27,14 +27,6 @@ describe("implementation selection", () => {
     sinon.assert.calledOnce(<sinon.SinonStub>webCryptoRandom.randomValues);
   });
 
-  it("should use IE 11 WebCrypto when available", async () => {
-    // @ts-ignore
-
-    await randomValues(1);
-
-    sinon.assert.notCalled(<sinon.SinonStub>webCryptoRandom.randomValues);
-  });
-
   it("should prefer standards-compliant WebCrypto over IE 11 WebCrypto", async () => {
     (<sinon.SinonStub>webCrypto.supportsWebCrypto).returns(true);
     // @ts-ignore
