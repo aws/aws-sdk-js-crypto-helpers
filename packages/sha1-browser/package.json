@@ -18,7 +18,6 @@
   "homepage": "https://github.com/aws/aws-sdk-js-crypto-helpers/tree/master/packages/sha1-browser",
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-crypto/ie11-detection": "file:../ie11-detection",
     "@aws-crypto/supports-web-crypto": "file:../supports-web-crypto",
     "@aws-sdk/types": "^3.110.0",
     "@aws-sdk/util-locate-window": "^3.0.0",
