@@ -1,4 +1,4 @@
-import { Hash, SourceData } from "@aws-sdk/types";
+import { Checksum, SourceData } from "@aws-sdk/types";
 import { isEmptyData, convertToBuffer } from "@aws-crypto/util";
 import {
   EMPTY_DATA_SHA_256,
@@ -7,25 +7,14 @@ import {
 } from "./constants";
 import { locateWindow } from "@aws-sdk/util-locate-window";
 
-export class Sha256 implements Hash {
-  private readonly key: Promise<CryptoKey> | undefined;
+export class Sha256 implements Checksum {
+  private readonly secret?: SourceData;
+  private key: Promise<CryptoKey> | undefined;
   private toHash: Uint8Array = new Uint8Array(0);
 
   constructor(secret?: SourceData) {
-    if (secret !== void 0) {
-      this.key = new Promise((resolve, reject) => {
-        locateWindow()
-          .crypto.subtle.importKey(
-            "raw",
-            convertToBuffer(secret),
-            SHA_256_HMAC_ALGO,
-            false,
-            ["sign"]
-          )
-          .then(resolve, reject);
-      });
-      this.key.catch(() => {});
-    }
+    this.secret = secret;
+    this.reset();
   }
 
   update(data: SourceData): void {
@@ -60,5 +49,23 @@ export class Sha256 implements Hash {
         locateWindow().crypto.subtle.digest(SHA_256_HASH, this.toHash)
       )
       .then((data) => Promise.resolve(new Uint8Array(data)));
+  }
+
+  reset(): void {
+    this.toHash = new Uint8Array(0);
+    if (this.secret && this.secret !== void 0) {
+      this.key = new Promise((resolve, reject) => {
+        locateWindow()
+            .crypto.subtle.importKey(
+            "raw",
+            convertToBuffer(this.secret as SourceData),
+            SHA_256_HMAC_ALGO,
+            false,
+            ["sign"]
+        )
+            .then(resolve, reject);
+      });
+      this.key.catch(() => {});
+    }
   }
 }

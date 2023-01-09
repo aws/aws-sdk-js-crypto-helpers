@@ -1,33 +1,18 @@
 import { BLOCK_SIZE } from "./constants";
 import { RawSha256 } from "./RawSha256";
-import { Hash, SourceData } from "@aws-sdk/types";
+import { Checksum, SourceData } from "@aws-sdk/types";
 import { isEmptyData, convertToBuffer } from "@aws-crypto/util";
 
-export class Sha256 implements Hash {
-  private readonly hash = new RawSha256();
-  private readonly outer?: RawSha256;
+export class Sha256 implements Checksum {
+  private readonly secret?: SourceData;
+  private hash: RawSha256;
+  private outer?: RawSha256;
   private error: any;
 
   constructor(secret?: SourceData) {
-    if (secret) {
-      this.outer = new RawSha256();
-      const inner = bufferFromSecret(secret);
-      const outer = new Uint8Array(BLOCK_SIZE);
-      outer.set(inner);
-
-      for (let i = 0; i < BLOCK_SIZE; i++) {
-        inner[i] ^= 0x36;
-        outer[i] ^= 0x5c;
-      }
-
-      this.hash.update(inner);
-      this.outer.update(outer);
-
-      // overwrite the copied key in memory
-      for (let i = 0; i < inner.byteLength; i++) {
-        inner[i] = 0;
-      }
-    }
+    this.secret = secret;
+    this.hash = new RawSha256();
+    this.reset();
   }
 
   update(toHash: SourceData): void {
@@ -68,6 +53,29 @@ export class Sha256 implements Hash {
    */
   async digest(): Promise<Uint8Array> {
     return this.digestSync();
+  }
+
+  reset(): void {
+    this.hash = new RawSha256();
+    if (this.secret) {
+      this.outer = new RawSha256();
+      const inner = bufferFromSecret(this.secret);
+      const outer = new Uint8Array(BLOCK_SIZE);
+      outer.set(inner);
+
+      for (let i = 0; i < BLOCK_SIZE; i++) {
+        inner[i] ^= 0x36;
+        outer[i] ^= 0x5c;
+      }
+
+      this.hash.update(inner);
+      this.outer.update(outer);
+
+      // overwrite the copied key in memory
+      for (let i = 0; i < inner.byteLength; i++) {
+        inner[i] = 0;
+      }
+    }
   }
 }
 

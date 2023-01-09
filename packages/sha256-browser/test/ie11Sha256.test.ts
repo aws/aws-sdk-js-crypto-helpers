@@ -281,4 +281,12 @@ describe("Sha256", () => {
     const test = await promise;
     expect(test).to.deep.equal(result);
   });
+
+  it("should create a new operation instance when reset is called", () => {
+    const sha256 = new Sha256();
+    const oldInstance = (sha256 as any).operation;
+    sha256.reset();
+    const newInstance = (sha256 as any).operation;
+    expect(oldInstance).to.not.equal(newInstance); // compare by reference
+  })
 });

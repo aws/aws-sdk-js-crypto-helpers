@@ -227,4 +227,12 @@ describe("Sha1", () => {
 
     expect(await sha1.digest()).to.deep.equal(EMPTY_DATA_SHA_1);
   });
+
+  it("should create a new toHash instance when reset is called", () => {
+    const sha1 = new Sha1();
+    const oldInstance = (sha1 as any).toHash;
+    sha1.reset();
+    const newInstance = (sha1 as any).toHash;
+    expect(oldInstance).to.not.equal(newInstance); // compare by reference
+  })
 });
