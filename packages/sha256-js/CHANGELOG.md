@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v2.0.1...v2.0.2) (2022-09-07)
+
+
+### Bug Fixes
+
+* **#337:** update @aws-sdk/types ([#373](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/373)) ([b26a811](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/b26a811a392f5209c7ec7e57251500d4d78f97ff)), closes [#337](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/337)
+
+
+
+
+
+## [2.0.1](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v2.0.0...v2.0.1) (2021-12-09)
+
+**Note:** Version bump only for package @aws-crypto/sha256-js
+
+
+
+
+
 # [2.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v1.2.2...v2.0.0) (2021-10-25)
 
 **Note:** Version bump only for package @aws-crypto/sha256-js
