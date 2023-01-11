@@ -1,6 +1,6 @@
-import { expect } from "chai";
 import "mocha";
-import { Crc32 } from "../src/index";
+import { expect } from "chai";
+import { Crc32, AwsCrc32 } from "../src/index";
 import { fromUtf8 } from "@aws-sdk/util-utf8-browser";
 
 type TestVector = [Uint8Array, number];
@@ -49,4 +49,12 @@ describe("Crc32", () => {
       expect(instance.update(data).digest()).to.eql(expectedCrc32);
     }
   });
+
+  it("should create a new crc32 instance when reset is called ", () => {
+    const awsCrc32 = new AwsCrc32();
+    const oldInstance = (awsCrc32 as any).crc32;
+    awsCrc32.reset();
+    const newInstance = (awsCrc32 as any).crc32;
+    expect(oldInstance).to.not.equal(newInstance); // compare by reference
+  })
 });

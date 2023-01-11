@@ -1,27 +1,17 @@
 import { isEmptyData } from "./isEmptyData";
 import { SHA_256_HMAC_ALGO } from "./constants";
-import { Hash, SourceData } from "@aws-sdk/types";
+import { Checksum, SourceData } from "@aws-sdk/types";
 import { fromUtf8 } from "@aws-sdk/util-utf8-browser";
 import { CryptoOperation, Key, MsWindow } from "@aws-crypto/ie11-detection";
 import { locateWindow } from "@aws-sdk/util-locate-window";
 
-export class Sha256 implements Hash {
-  private operation: Promise<CryptoOperation>;
+export class Sha256 implements Checksum {
+  private readonly secret?: SourceData;
+  private operation!: Promise<CryptoOperation>;
 
   constructor(secret?: SourceData) {
-    if (secret) {
-      this.operation = getKeyPromise(secret).then(keyData =>
-        (locateWindow() as MsWindow).msCrypto.subtle.sign(
-          SHA_256_HMAC_ALGO,
-          keyData
-        )
-      );
-      this.operation.catch(() => {});
-    } else {
-      this.operation = Promise.resolve(
-        (locateWindow() as MsWindow).msCrypto.subtle.digest("SHA-256")
-      );
-    }
+    this.secret = secret;
+    this.reset();
   }
 
   update(toHash: SourceData): void {
@@ -59,6 +49,22 @@ export class Sha256 implements Hash {
           operation.finish();
         })
     );
+  }
+
+  reset(): void {
+    if (this.secret) {
+      this.operation = getKeyPromise(this.secret).then(keyData =>
+          (locateWindow() as MsWindow).msCrypto.subtle.sign(
+              SHA_256_HMAC_ALGO,
+              keyData
+          )
+      );
+      this.operation.catch(() => {});
+    } else {
+      this.operation = Promise.resolve(
+          (locateWindow() as MsWindow).msCrypto.subtle.digest("SHA-256")
+      );
+    }
   }
 }
 

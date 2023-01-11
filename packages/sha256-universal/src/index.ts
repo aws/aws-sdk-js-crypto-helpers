@@ -1,9 +1,10 @@
 import { Sha256 as BrowserSha256 } from "@aws-crypto/sha256-browser";
-import { Hash as NodeHash } from "@aws-sdk/hash-node";
-import { Hash, SourceData } from "@aws-sdk/types";
+import { Checksum, SourceData } from "@aws-sdk/types";
+import { convertToBuffer } from "@aws-crypto/util";
+import { NodeHash } from './node_hash'
 
-export class Sha256 implements Hash {
-  private readonly hash: Hash;
+export class Sha256 implements Checksum {
+  private hash: Checksum;
 
   constructor(secret?: SourceData) {
     if (supportsCryptoModule()) {
@@ -14,11 +15,15 @@ export class Sha256 implements Hash {
   }
 
   update(data: SourceData, encoding?: "utf8" | "ascii" | "latin1"): void {
-    this.hash.update(data, encoding);
+    this.hash.update(convertToBuffer(data));
   }
 
   digest(): Promise<Uint8Array> {
     return this.hash.digest();
+  }
+
+  reset(): void {
+    this.hash.reset();
   }
 }
 

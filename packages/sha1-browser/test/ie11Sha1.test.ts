@@ -8,6 +8,8 @@ import * as sinon from "sinon";
 
 import * as utf8Browser from "@aws-sdk/util-utf8-browser";
 import { locateWindow } from "@aws-sdk/util-locate-window";
+import * as webCrypto from "@aws-crypto/supports-web-crypto";
+import * as ie11Detection from "@aws-crypto/ie11-detection";
 
 describe("Sha1", () => {
   beforeEach(() => {
@@ -281,4 +283,12 @@ describe("Sha1", () => {
     const test = await promise;
     expect(test).to.deep.equal(result);
   });
+
+  it("should create a new operation instance when reset is called", () => {
+    const sha1 = new Sha1();
+    const oldInstance = (sha1 as any).operation;
+    sha1.reset();
+    const newInstance = (sha1 as any).operation;
+    expect(oldInstance).to.not.equal(newInstance); // compare by reference
+  })
 });
