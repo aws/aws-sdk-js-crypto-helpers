@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/sha1-browser",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -18,9 +18,9 @@
   "homepage": "https://github.com/aws/aws-sdk-js-crypto-helpers/tree/master/packages/sha1-browser",
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-crypto/util": "file:../util",
     "@aws-crypto/ie11-detection": "file:../ie11-detection",
     "@aws-crypto/supports-web-crypto": "file:../supports-web-crypto",
+    "@aws-crypto/util": "file:../util",
     "@aws-sdk/types": "^3.222.0",
     "@aws-sdk/util-locate-window": "^3.0.0",
     "@aws-sdk/util-utf8-browser": "^3.0.0",
