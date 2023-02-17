@@ -13,7 +13,6 @@ jobs:
           - windows-latest
           - macos-latest
         node:
-          - 12
           - 14
           - 16
     steps:
