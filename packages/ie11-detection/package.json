@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/ie11-detection",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Provides functions and types for detecting if the host environment is IE11",
   "scripts": {
     "pretest": "tsc -p tsconfig.json",

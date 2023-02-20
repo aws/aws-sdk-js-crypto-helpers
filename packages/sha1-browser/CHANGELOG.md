@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v3.0.0...v4.0.0) (2023-02-20)
+
+**Note:** Version bump only for package @aws-crypto/sha1-browser
+
 # [3.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v2.0.2...v3.0.0) (2023-01-12)
 
 - feat!: replace Hash implementations with Checksum interface (#492) ([da43dc0](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/da43dc0fdf669d9ebb5bfb1b1f7c79e46c4aaae1)), closes [#492](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/492)

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v3.0.0...v4.0.0) (2023-02-20)
+
+**Note:** Version bump only for package @aws-crypto/sha256-js
+
 # [3.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v2.0.2...v3.0.0) (2023-01-12)
 
 ### Bug Fixes

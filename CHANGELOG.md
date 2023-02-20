@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v3.0.0...v4.0.0) (2023-02-20)
+
+- feat!: deprecate node12. ([d85ca33](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/d85ca33d1b98e2acdeb5dd8981a369630f69addf))
+
+### BREAKING CHANGES
+
+- Remove node12 from CI (#543)
+
 # [3.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v2.0.2...v3.0.0) (2023-01-12)
 
 ### Bug Fixes

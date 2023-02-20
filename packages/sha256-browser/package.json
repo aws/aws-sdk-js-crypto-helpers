@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/sha256-browser",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
