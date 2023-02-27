@@ -69,4 +69,4 @@ We would appreciate, but do not require, unit tests for all significant contribu
 
 ## License
 
-This library is licensed under the Apache 2.0 License.
+This library is licensed under the Apache 2.0 License...
