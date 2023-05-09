@@ -26,7 +26,7 @@
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "browser": {
-    "@aws/hash-node": false,
+    "@aws-sdk/hash-node": false,
     "crypto": false
   }
 }
