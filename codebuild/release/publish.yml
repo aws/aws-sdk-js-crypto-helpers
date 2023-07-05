@@ -16,7 +16,7 @@ phases:
       - npm install otplib --no-save
       - npm test
     runtime-versions:
-      nodejs: 14
+      nodejs: latest
 
   pre_build:
     commands:

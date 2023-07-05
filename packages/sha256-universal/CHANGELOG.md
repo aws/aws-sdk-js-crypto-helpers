@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v4.0.0...v4.0.1) (2023-05-22)
+
+### Bug Fixes
+
+- correct package naming in "browser" fields ([#625](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/625)) ([24d8c2b](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/24d8c2b4b740fe2c8faa136384fe3ae8fb1ff60b))
+
 # [4.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v3.0.0...v4.0.0) (2023-02-20)
 
 **Note:** Version bump only for package @aws-crypto/sha256-universal
