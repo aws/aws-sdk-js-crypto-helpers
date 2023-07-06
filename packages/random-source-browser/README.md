@@ -2,8 +2,8 @@
 
 Access to a secure random source in a browser.
 `Math.random` is not acceptable for cryptographic operations.
-This module exports a consistent interface for modern browsers
-and IE11.
+This module exports a consistent interface for modern browsers.
+
 
 ## Usage
 
