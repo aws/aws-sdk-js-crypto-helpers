@@ -28,5 +28,8 @@
   "browser": {
     "@aws-sdk/hash-node": false,
     "crypto": false
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

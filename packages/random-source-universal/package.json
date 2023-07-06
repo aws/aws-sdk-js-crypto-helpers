@@ -27,5 +27,8 @@
     "@aws/crypto-random-source-node": false
   },
   "main": "./build/index.js",
-  "types": "./build/index.d.ts"
+  "types": "./build/index.d.ts",
+  "engines": {
+    "node": ">=16.0.0"
+  }
 }
