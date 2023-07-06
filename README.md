@@ -38,7 +38,6 @@ example();
 Each package has readme details.
 
 - [crc32](packages/crc32)
-- [ie11-detection](packages/ie11-detection)
 - [random-source-browser](packages/random-source-browser)
 - [random-source-node](packages/random-source-node)
 - [random-source-universal](packages/random-source-universal)

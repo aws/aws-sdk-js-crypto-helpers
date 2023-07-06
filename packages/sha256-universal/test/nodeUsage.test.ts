@@ -1,10 +1,10 @@
 import { expect } from "chai";
 import "mocha";
 import { Sha256 } from "../src/";
-import { Hash } from "@aws-sdk/hash-node";
 
 import * as sinon from "sinon";
 import * as crypto from "crypto";
+import { NodeHash as Hash } from "../src/node_hash";
 
 describe("implementation selection", () => {
   before(() => sinon.stub(crypto, "createHash"));

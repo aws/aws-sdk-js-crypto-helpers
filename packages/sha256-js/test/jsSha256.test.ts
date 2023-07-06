@@ -71,6 +71,22 @@ describe("Sha256", () => {
     );
   });
 
+  it("should create a new hash instance when reset is called", () => {
+    const sha256 = new Sha256();
+    const oldInstance = (sha256 as any).hash;
+    sha256.reset();
+    const newInstance = (sha256 as any).hash;
+    expect(oldInstance).to.not.equal(newInstance); // compare by reference
+  })
+
+  it("should create a outer hash instance when reset is called", () => {
+    const sha256 = new Sha256("foo");
+    const oldInstance = (sha256 as any).outer;
+    sha256.reset();
+    const newInstance = (sha256 as any).outer;
+    expect(oldInstance).to.not.equal(newInstance); // compare by reference
+  })
+
   let idx = 0;
   for (const [input, result] of hashTestVectors) {
     it("should match known hash calculations: " + idx++, async () => {

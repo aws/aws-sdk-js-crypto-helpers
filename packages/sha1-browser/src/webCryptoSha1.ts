@@ -1,10 +1,10 @@
-import { Hash, SourceData } from "@aws-sdk/types";
+import { Checksum, SourceData } from "@aws-sdk/types";
 import { fromUtf8 } from "@aws-sdk/util-utf8-browser";
 import { isEmptyData } from "./isEmptyData";
 import { EMPTY_DATA_SHA_1, SHA_1_HASH, SHA_1_HMAC_ALGO } from "./constants";
 import { locateWindow } from "@aws-sdk/util-locate-window";
 
-export class Sha1 implements Hash {
+export class Sha1 implements Checksum {
   private readonly key: Promise<CryptoKey> | undefined;
   private toHash: Uint8Array = new Uint8Array(0);
 
@@ -55,6 +55,10 @@ export class Sha1 implements Hash {
     return Promise.resolve()
       .then(() => locateWindow().crypto.subtle.digest(SHA_1_HASH, this.toHash))
       .then((data) => Promise.resolve(new Uint8Array(data)));
+  }
+
+  reset(): void {
+    this.toHash = new Uint8Array(0);
   }
 }
 

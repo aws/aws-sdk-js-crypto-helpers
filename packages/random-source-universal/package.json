@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/random-source-universal",
-  "version": "2.0.2",
+  "version": "4.0.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -20,7 +20,7 @@
   "dependencies": {
     "@aws-crypto/random-source-browser": "file:../random-source-browser",
     "@aws-crypto/random-source-node": "file:../random-source-node",
-    "@aws-sdk/types": "^3.110.0",
+    "@aws-sdk/types": "^3.222.0",
     "tslib": "^1.11.1"
   },
   "browser": {
