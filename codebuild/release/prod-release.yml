@@ -9,7 +9,7 @@ batch:
     - identifier: testNodejsLatest
       buildspec: codebuild/nodejs_latest.yml
       env:
-        image: aws/codebuild/standard:5.0
+        image: aws/codebuild/standard:6.0
 
     # Test publishing to local Verdaccio server
     - identifier: test_publish
@@ -19,7 +19,7 @@ batch:
       env:
         variables:
           CI: "true"
-        image: aws/codebuild/standard:5.0
+        image: aws/codebuild/standard:6.0
 
     # Version the project and push git commits and tags
     - identifier: version
@@ -42,5 +42,5 @@ batch:
       env:
         variables:
           CI: "false"
-        image: aws/codebuild/standard:5.0
+        image: aws/codebuild/standard:6.0
 
