@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v4.0.1...v5.0.0) (2023-07-13)
+
+- feat!: drop support for IE 11 (#629) ([6c49fb6](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/6c49fb6c1b1f18bbff02dbd77a37a21bdb40c959)), closes [#629](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/629)
+- chore!: Drop Node 14 Support (#678) ([4bae6e9](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/4bae6e99dd6c622c3359bba95a2a2e89956f4cf1)), closes [#678](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/678)
+
+### BREAKING CHANGES
+
+- Remove support for IE11
+
+Co-authored-by: texastony <5892063+texastony@users.noreply.github.com>
+
+- Node 14 is no longer supported nor tested.
+
 ## [4.0.1](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v4.0.0...v4.0.1) (2023-05-22)
 
 ### Bug Fixes

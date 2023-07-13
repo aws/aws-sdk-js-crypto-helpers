@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v4.0.1...v5.0.0) (2023-07-13)
+
+- feat!: drop support for IE 11 (#629) ([6c49fb6](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/6c49fb6c1b1f18bbff02dbd77a37a21bdb40c959)), closes [#629](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/629)
+
+### BREAKING CHANGES
+
+- Remove support for IE11
+
+Co-authored-by: texastony <5892063+texastony@users.noreply.github.com>
+
 # [4.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v3.0.0...v4.0.0) (2023-02-20)
 
 **Note:** Version bump only for package @aws-crypto/sha256-browser

@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/sha256-universal",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
