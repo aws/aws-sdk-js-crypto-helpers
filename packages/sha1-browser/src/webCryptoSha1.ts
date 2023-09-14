@@ -1,5 +1,5 @@
 import { Checksum, SourceData } from "@aws-sdk/types";
-import { fromUtf8 } from "@aws-sdk/util-utf8-browser";
+import { fromUtf8 } from "@smithy/util-utf8";
 import { isEmptyData } from "./isEmptyData";
 import { EMPTY_DATA_SHA_1, SHA_1_HASH, SHA_1_HMAC_ALGO } from "./constants";
 import { locateWindow } from "@aws-sdk/util-locate-window";

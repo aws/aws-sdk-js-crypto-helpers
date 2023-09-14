@@ -8,8 +8,6 @@ import {
 } from "../src/constants";
 import { flushPromises } from "./testUtils.fixture";
 import * as sinon from "sinon";
-
-import * as utf8Browser from "@aws-sdk/util-utf8-browser";
 import { locateWindow } from "@aws-sdk/util-locate-window";
 
 describe("Sha1", () => {
@@ -22,7 +20,6 @@ describe("Sha1", () => {
       },
     };
 
-    sinon.stub(utf8Browser, "fromUtf8");
   });
 
   afterEach(() => sinon.restore());
@@ -77,27 +74,24 @@ describe("Sha1", () => {
 
   it("should convert empty string secrets to empty ArrayBuffers", async () => {
     const { importKey } = locateWindow().crypto.subtle;
-    (utf8Browser.fromUtf8 as sinon.SinonStub).returns(new ArrayBuffer(0));
 
     const sha1 = new Sha1("");
     await flushPromises();
 
-    sinon.assert.calledOnce(utf8Browser.fromUtf8 as sinon.SinonStub);
-    const [str] = (utf8Browser.fromUtf8 as sinon.SinonStub).firstCall.args;
-    expect(str).to.eql("");
-
     const [_, key] = (importKey as sinon.SinonStub).firstCall.args;
 
-    expect(key).to.deep.equal(new ArrayBuffer(0));
+    expect(key).to.deep.equal(new Uint8Array(0));
   });
 
   it("should import string secrets via the browser UTF-8 decoder", async () => {
+    const { importKey } = locateWindow().crypto.subtle;
+
     const sha1 = new Sha1("secret");
     await flushPromises();
 
-    sinon.assert.calledOnce(utf8Browser.fromUtf8 as sinon.SinonStub);
-    const [str] = (utf8Browser.fromUtf8 as sinon.SinonStub).firstCall.args;
-    expect(str).to.eql("secret");
+    const [_, key] = (importKey as sinon.SinonStub).firstCall.args;
+
+    expect(key).to.deep.equal(new Uint8Array([ 115, 101, 99, 114, 101, 116 ]));
   });
 
   it("should trap UTF-8 errors", async () => {

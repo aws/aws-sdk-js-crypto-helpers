@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { SourceData } from "@aws-sdk/types";
-import { fromUtf8 as fromUtf8Browser } from "@aws-sdk/util-utf8-browser";
+import { fromUtf8 as fromUtf8Browser } from "@smithy/util-utf8";
 
 // Quick polyfill
 const fromUtf8 =

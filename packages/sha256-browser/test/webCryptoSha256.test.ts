@@ -9,7 +9,6 @@ import {
 import { flushPromises } from "./testUtils.fixture";
 import * as sinon from "sinon";
 
-import * as utf8Browser from "@aws-sdk/util-utf8-browser";
 import { locateWindow } from "@aws-sdk/util-locate-window";
 
 describe("Sha256", () => {
@@ -22,7 +21,6 @@ describe("Sha256", () => {
       },
     };
 
-    sinon.stub(utf8Browser, "fromUtf8");
   });
 
   afterEach(() => sinon.restore());
