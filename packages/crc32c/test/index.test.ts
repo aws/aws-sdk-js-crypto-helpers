@@ -1,7 +1,7 @@
 import "mocha";
 import { expect } from "chai";
 import { Crc32c, AwsCrc32c } from "../src";
-import { fromUtf8 } from "@aws-sdk/util-utf8-browser";
+import { fromUtf8 } from "@smithy/util-utf8";
 
 type TestVector = [Uint8Array, number];
 
