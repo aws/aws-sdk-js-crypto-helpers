@@ -3,7 +3,6 @@ import "mocha";
 import { testableRandomValues } from "../src/";
 import * as sinon from "sinon";
 
-import * as webCrypto from "@aws-crypto/supports-web-crypto";
 import * as webCryptoRandom from "../src/webCryptoRandomValues";
 declare var global: any;
 
