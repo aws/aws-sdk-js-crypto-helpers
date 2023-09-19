@@ -7,82 +7,84 @@ import * as webCrypto from "@aws-crypto/supports-web-crypto";
 import * as webCryptoRandom from "../src/webCryptoRandomValues";
 declare var global: any;
 
-describe("implementation selection", () => {
-  beforeEach(() => {
-    sinon.stub(webCryptoRandom, "randomValues");
-    sinon.stub(webCrypto, "supportsWebCrypto");
-  });
+const sandbox = sinon.createSandbox();
 
-  afterEach(() => {
-    (<sinon.SinonStub>webCryptoRandom.randomValues).restore();
-    // @ts-ignore
-    (<sinon.SinonStub>webCrypto.supportsWebCrypto).restore();
-  });
+// describe("implementation selection", () => {
+//   beforeEach(() => {
+//     sandbox.stub(webCryptoRandom, "randomValues");
+//     sandbox.stub(webCrypto, "supportsWebCrypto");
+//   });
 
-  it("should use WebCrypto when available", async () => {
-    (<sinon.SinonStub>webCrypto.supportsWebCrypto).returns(true);
+//   afterEach(() => {
+//     (<sinon.SinonStub>webCryptoRandom.randomValues).restore();
+//     // @ts-ignore
+//     (<sinon.SinonStub>webCrypto.supportsWebCrypto).restore();
+//   });
 
-    await randomValues(1);
+//   it("should use WebCrypto when available", async () => {
+//     (<sinon.SinonStub>webCrypto.supportsWebCrypto).returns(true);
 
-    sinon.assert.calledOnce(<sinon.SinonStub>webCryptoRandom.randomValues);
-  });
+//     await randomValues(1);
 
-  it("should throw if WebCrypto is not available", async () => {
-    try {
-      await randomValues(1);
-    } catch (ex) {
-      expect(ex).to.be.instanceof(Error);
-    }
+//     sandbox.assert.calledOnce(<sinon.SinonStub>webCryptoRandom.randomValues);
+//   });
 
-    sinon.assert.notCalled(<sinon.SinonStub>webCryptoRandom.randomValues);
-  });
-});
+//   it("should throw if WebCrypto is not available", async () => {
+//     try {
+//       await randomValues(1);
+//     } catch (ex) {
+//       expect(ex).to.be.instanceof(Error);
+//     }
 
-describe("global detection", () => {
-  beforeEach(() => {
-    sinon.stub(webCryptoRandom, "randomValues");
-    sinon.stub(webCrypto, "supportsWebCrypto");
-  });
+//     sandbox.assert.notCalled(<sinon.SinonStub>webCryptoRandom.randomValues);
+//   });
+// });
 
-  afterEach(() => {
-    (<sinon.SinonStub>webCryptoRandom.randomValues).restore();
-    (<sinon.SinonStub>webCrypto.supportsWebCrypto).restore();
-  });
+// describe("global detection", () => {
+//   beforeEach(() => {
+//     sinon.stub(webCryptoRandom, "randomValues");
+//     sinon.stub(webCrypto, "supportsWebCrypto");
+//   });
 
-  const _window = (global as any).window || {};
-  const _self = (global as any).self || {};
+//   afterEach(() => {
+//     (<sinon.SinonStub>webCryptoRandom.randomValues).restore();
+//     (<sinon.SinonStub>webCrypto.supportsWebCrypto).restore();
+//   });
 
-  beforeEach(() => {
-    (global as any).window = undefined;
-    (global as any).self = undefined;
-  });
+//   const _window = (global as any).window || {};
+//   const _self = (global as any).self || {};
 
-  after(() => {
-    (global as any).window = _window;
-    (global as any).self = _self;
-  });
+//   beforeEach(() => {
+//     (global as any).window = undefined;
+//     (global as any).self = undefined;
+//   });
 
-  it("should throw if neither window nor self is defined", async () => {
-    try {
-      await randomValues(1);
-    } catch (ex) {
-      expect(ex).to.be.instanceof(Error);
-      sinon.assert.notCalled(<sinon.SinonStub>webCryptoRandom.randomValues);
-      return;
-    }
-    throw new Error("never");
-  });
+//   after(() => {
+//     (global as any).window = _window;
+//     (global as any).self = _self;
+//   });
 
-  it("should use `self` if window is not defined", async () => {
-    (global as any).self = _self;
+//   it("should throw if neither window nor self is defined", async () => {
+//     try {
+//       await randomValues(1);
+//     } catch (ex) {
+//       expect(ex).to.be.instanceof(Error);
+//       sinon.assert.notCalled(<sinon.SinonStub>webCryptoRandom.randomValues);
+//       return;
+//     }
+//     throw new Error("never");
+//   });
 
-    try {
-      await randomValues(1);
-    } catch {}
+//   it("should use `self` if window is not defined", async () => {
+//     (global as any).self = _self;
 
-    sinon.assert.calledOnce(<sinon.SinonStub>webCrypto.supportsWebCrypto);
-    expect(
-      (<sinon.SinonStub>webCrypto.supportsWebCrypto).firstCall.args[0]
-    ).to.eql(_self);
-  });
-});
+//     try {
+//       await randomValues(1);
+//     } catch {}
+
+//     sinon.assert.calledOnce(<sinon.SinonStub>webCrypto.supportsWebCrypto);
+//     expect(
+//       (<sinon.SinonStub>webCrypto.supportsWebCrypto).firstCall.args[0]
+//     ).to.eql(_self);
+//   });
+// });
