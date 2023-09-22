@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v5.0.0...v5.1.0) (2023-09-22)
+
+### Bug Fixes
+
+- Update tsc to 2.x ([#735](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/735)) ([782e0de](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/782e0de9f5fef41f694130580a69d940894b6b8c))
+
 # [5.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v4.0.1...v5.0.0) (2023-07-13)
 
 **Note:** Version bump only for package @aws-crypto/sha256-js

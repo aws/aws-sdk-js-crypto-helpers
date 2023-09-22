@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v5.0.0...v5.1.0) (2023-09-22)
+
+### Bug Fixes
+
+- Update tsc to 2.x ([#735](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/735)) ([782e0de](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/782e0de9f5fef41f694130580a69d940894b6b8c))
+
+### Features
+
+- Use @smithy/util-utf8 ([#730](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/730)) ([00fb851](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/00fb851ca3559d5a1f370f9256814de1210826b8)), closes [#699](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/699)
+
 # [5.0.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v4.0.1...v5.0.0) (2023-07-13)
 
 **Note:** Version bump only for package @aws-crypto/crc32c
