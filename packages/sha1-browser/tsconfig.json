@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./build/main",
+    "lib": ["dom"],
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules/**"]
