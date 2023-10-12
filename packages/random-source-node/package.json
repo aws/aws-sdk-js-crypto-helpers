@@ -2,8 +2,11 @@
   "name": "@aws-crypto/random-source-node",
   "version": "5.1.0",
   "description": "A Node.JS implementation of the AWS SDK for JavaScript's `randomValues` interface",
-  "main": "./build/index.js",
+  "main": "./build/main/index.js",
+  "module": "./build/module/index.js",
+  "types": "./build/main/index.d.ts",
   "scripts": {
+    "prepublishOnly": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
     "pretest": "tsc -p tsconfig.test.json",
     "test": "mocha --require ts-node/register test/**/*test.ts"
   },
@@ -22,7 +25,6 @@
     "@aws-sdk/types": "^3.222.0",
     "tslib": "^2.6.2"
   },
-  "types": "./build/index.d.ts",
   "engines": {
     "node": ">=16.0.0"
   }

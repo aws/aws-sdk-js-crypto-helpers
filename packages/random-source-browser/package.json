@@ -2,7 +2,7 @@
   "name": "@aws-crypto/random-source-browser",
   "version": "5.1.0",
   "scripts": {
-    "prepublishOnly": "tsc",
+    "prepublishOnly": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
     "pretest": "tsc -p tsconfig.test.json",
     "test": "mocha --require ts-node/register test/**/*test.ts"
   },
@@ -22,6 +22,7 @@
     "@aws-sdk/util-locate-window": "^3.0.0",
     "tslib": "^2.6.2"
   },
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts"
+  "main": "./build/main/index.js",
+  "module": "./build/module/index.js",
+  "types": "./build/main/index.d.ts"
 }
