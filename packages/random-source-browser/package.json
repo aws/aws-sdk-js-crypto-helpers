@@ -1,6 +1,6 @@
 {
   "name": "@aws-crypto/random-source-browser",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "scripts": {
     "prepublishOnly": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
     "pretest": "tsc -p tsconfig.test.json",

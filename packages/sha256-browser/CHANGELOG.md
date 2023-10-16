@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v5.1.0...v5.2.0) (2023-10-16)
+
+### Features
+
+- support ESM artifacts in all packages ([#752](https://github.com/aws/aws-sdk-js-crypto-helpers/issues/752)) ([e930ffb](https://github.com/aws/aws-sdk-js-crypto-helpers/commit/e930ffba5cfef66dd242049e7d514ced232c1e3b))
+
 # [5.1.0](https://github.com/aws/aws-sdk-js-crypto-helpers/compare/v5.0.0...v5.1.0) (2023-09-22)
 
 ### Bug Fixes
