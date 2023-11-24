@@ -22,8 +22,8 @@
   "homepage": "https://github.com/aws/aws-sdk-js-crypto-helpers/tree/master/packages/random-source-node",
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^3.222.0",
-    "tslib": "^2.6.2"
+    "@aws-sdk/types": "3.222.0",
+    "tslib": "2.6.2"
   },
   "engines": {
     "node": ">=16.0.0"
