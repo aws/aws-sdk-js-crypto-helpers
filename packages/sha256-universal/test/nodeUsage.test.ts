@@ -4,7 +4,7 @@ import { Sha256 } from "../src/";
 
 import * as sinon from "sinon";
 import * as crypto from "crypto";
-import { NodeHash as Hash } from "../src/node_hash";
+import { Hash } from "@smithy/hash-node";
 
 describe("implementation selection", () => {
   before(() => sinon.stub(crypto, "createHash"));
