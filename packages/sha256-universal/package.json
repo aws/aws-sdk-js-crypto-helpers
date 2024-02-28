@@ -20,7 +20,7 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "file:../sha256-browser",
     "@aws-sdk/hash-node": "^3.110.0",
-    "@aws-sdk/types": "~3.413.0",
+    "@aws-sdk/types": "~3.523.0",
     "tslib": "~2.6.2"
   },
   "main": "./build/main/index.js",
