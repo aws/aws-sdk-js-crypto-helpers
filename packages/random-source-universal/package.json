@@ -20,7 +20,7 @@
   "dependencies": {
     "@aws-crypto/random-source-browser": "file:../random-source-browser",
     "@aws-crypto/random-source-node": "file:../random-source-node",
-    "@aws-sdk/types": "~3.413.0",
+    "@aws-sdk/types": "~3.533.0",
     "tslib": "~2.6.2"
   },
   "browser": {
