@@ -19,15 +19,15 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/sha256-browser": "file:../sha256-browser",
-    "@aws-sdk/hash-node": "^3.110.0",
     "@aws-sdk/types": "~3.413.0",
+    "@smithy/hash-node": "^2.2.0",
     "tslib": "~2.6.2"
   },
   "main": "./build/main/index.js",
   "module": "./build/module/index.js",
   "types": "./build/main/index.d.ts",
   "browser": {
-    "@aws-sdk/hash-node": false,
+    "@smithy/hash-node": false,
     "crypto": false
   },
   "engines": {
