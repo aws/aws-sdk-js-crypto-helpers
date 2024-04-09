@@ -38,7 +38,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@aws-sdk/types": "~3.413.0",
+    "@aws-sdk/types": "~3.535.0",
     "@aws-sdk/util-buffer-from": "^3.29.0",
     "@aws-sdk/util-hex-encoding": "^3.29.0",
     "@smithy/util-utf8": "^2.0.0",
