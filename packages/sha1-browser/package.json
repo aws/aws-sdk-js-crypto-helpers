@@ -20,7 +20,7 @@
   "dependencies": {
     "@aws-crypto/supports-web-crypto": "file:../supports-web-crypto",
     "@aws-crypto/util": "file:../util",
-    "@aws-sdk/types": "~3.413.0",
+    "@aws-sdk/types": "~3.567.0",
     "@aws-sdk/util-locate-window": "^3.0.0",
     "@smithy/util-utf8": "^2.0.0",
     "tslib": "~2.6.2"
