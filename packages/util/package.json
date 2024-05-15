@@ -21,7 +21,7 @@
   "homepage": "https://github.com/aws/aws-sdk-js-crypto-helpers/tree/master/packages/util",
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "~3.413.0",
+    "@aws-sdk/types": "~3.575.0",
     "@smithy/util-utf8": "^2.0.0",
     "tslib": "~2.6.2"
   },
