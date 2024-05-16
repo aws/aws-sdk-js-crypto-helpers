@@ -19,7 +19,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/sha256-browser": "file:../sha256-browser",
-    "@aws-sdk/types": "~3.413.0",
+    "@aws-sdk/types": "~3.577.0",
     "@smithy/hash-node": "^2.2.0",
     "tslib": "~2.6.2"
   },
