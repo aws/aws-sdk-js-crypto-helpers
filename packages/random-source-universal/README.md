@@ -6,7 +6,7 @@ See @aws-crypto/random-source-browser and @aws-crypto/random-source-node
 ## Usage
 
 ```
-import {randomValues} from '@aws-crypto/random-source-node'
+import {randomValues} from '@aws-crypto/random-source-universal'
 
 const seedData = await randomValues(16);
 
