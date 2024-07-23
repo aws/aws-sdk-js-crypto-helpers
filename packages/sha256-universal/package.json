@@ -26,6 +26,10 @@
   },
   "main": "./build/main/index.js",
   "module": "./build/module/index.js",
+  "exports": {
+    "import": "./build/module/index.js",
+    "require": "./build/main/index.js"
+  },
   "types": "./build/main/index.d.ts",
   "browser": {
     "@smithy/hash-node": false,
