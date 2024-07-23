@@ -7,6 +7,7 @@
   "scripts": {
     "clean": "npm run clear-build-cache && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build/*",
+    "build": "lerna run build",
     "pretest": "lerna run pretest",
     "test": "lerna run test",
     "verdaccio-publish": "./util/local_verdaccio_publish",

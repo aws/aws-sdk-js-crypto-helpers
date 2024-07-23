@@ -6,7 +6,8 @@
   "module": "./build/module/index.js",
   "types": "./build/main/index.d.ts",
   "scripts": {
-    "prepublishOnly": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
+    "prepublishOnly": "npm run build",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
     "pretest": "tsc -p tsconfig.test.json",
     "test": "mocha --require ts-node/register test/**/*test.ts"
   },
