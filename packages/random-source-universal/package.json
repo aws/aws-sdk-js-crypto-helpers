@@ -2,7 +2,8 @@
   "name": "@aws-crypto/random-source-universal",
   "version": "5.2.0",
   "scripts": {
-    "prepublishOnly": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
+    "prepublishOnly": "npm run build",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
     "pretest": "tsc -p tsconfig.test.json",
     "test": "mocha --require ts-node/register test/**/*test.ts"
   },
