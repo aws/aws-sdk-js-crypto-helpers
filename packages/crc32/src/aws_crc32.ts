@@ -3,7 +3,7 @@
 
 import { SourceData, Checksum } from "@aws-sdk/types";
 import { convertToBuffer, isEmptyData, numToUint8 } from "@aws-crypto/util";
-import { Crc32 } from "./index";
+import { Crc32 } from "./crc32";
 
 export class AwsCrc32 implements Checksum {
   private crc32 = new Crc32();
