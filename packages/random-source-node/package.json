@@ -4,6 +4,10 @@
   "description": "A Node.JS implementation of the AWS SDK for JavaScript's `randomValues` interface",
   "main": "./build/main/index.js",
   "module": "./build/module/index.js",
+  "exports": {
+    "import": "./build/module/index.js",
+    "require": "./build/main/index.js"
+  },
   "types": "./build/main/index.d.ts",
   "scripts": {
     "prepublishOnly": "npm run build",
