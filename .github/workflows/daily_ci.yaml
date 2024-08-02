@@ -1,0 +1,10 @@
+# This workflow runs every weekday at 15:00 UTC (8AM PDT)
+name: Daily CI
+
+on:
+  schedule:
+    - cron: "00 15 * * 1-5"
+
+jobs:
+  daily-ci-js-helpers:
+      uses: ./.github/workflows/ci-unit-tests.yaml

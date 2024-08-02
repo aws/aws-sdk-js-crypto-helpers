@@ -1,0 +1,11 @@
+# This workflow runs for every push to master
+name: Push CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  push-ci-js-helpers-test:
+    uses: ./.github/workflows/ci-unit-tests.yaml
