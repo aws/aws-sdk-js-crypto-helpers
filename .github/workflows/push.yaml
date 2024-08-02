@@ -1,4 +1,4 @@
-# This workflow runs for every push to main
+# This workflow runs for every push to master
 name: Push CI
 
 on:
