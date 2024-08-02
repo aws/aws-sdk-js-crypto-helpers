@@ -4,7 +4,7 @@ name: Push CI
 on:
   push:
     branches:
-      - rkapila/daily-ci
+      - master
 
 jobs:
   push-ci-js-helpers-test:
