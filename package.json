@@ -62,7 +62,7 @@
     "ts-node": "^10.9.1",
     "tslib": "~2.6.2",
     "typescript": "^5.3.3",
-    "verdaccio": "^5.13.1"
+    "verdaccio": "^6.0.2"
   },
   "husky": {
     "hooks": {
