@@ -43,19 +43,20 @@ jobs:
       - name: Build (for source code testing)
         if: ${{ !inputs.test-published-packages }}
         run: npm run build
-      
-      # Run vector tests for all CI runs (Ubuntu only)
-      - name: Publish locally for vector tests
-        if: ${{ !inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
-        run: npm run verdaccio-publish
 
       - run: npm test
+      
+      # Run vector tests for all CI runs (Ubuntu only)
+      # Verdaccio is only supported on Node.js v18 and higher
+      - name: Publish locally for vector tests (except Node.js 16)
+        if: ${{ !inputs.test-published-packages && matrix.node != '16.x' }}
+        run: npm run verdaccio-publish
         
       - name: Run vector tests (local packages)
-        if: ${{ !inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
+        if: ${{ !inputs.test-published-packages && matrix.node != '16.x' }}
         run: npm run verdaccio-verify-publish -- ci
       
       # Run vector tests against published packages (release workflow validation, Ubuntu only)
       - name: Run vector tests (published packages)
-        if: ${{ inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
+        if: ${{ inputs.test-published-packages && matrix.node != '16.x' }}
         run: npm run verdaccio-verify-publish -- public
