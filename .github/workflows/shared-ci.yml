@@ -48,15 +48,16 @@ jobs:
       
       # Run vector tests for all CI runs (Ubuntu only)
       # Verdaccio is only supported on Node.js v18 and higher
+      # Weird syntax issues on Windows prevent us from running these tests there
       - name: Publish locally for vector tests (except Node.js 16)
-        if: ${{ !inputs.test-published-packages && matrix.node != '16.x' }}
+        if: ${{ !inputs.test-published-packages && matrix.node != '16.x' && matrix.os != 'windows-latest' }}
         run: npm run verdaccio-publish
         
       - name: Run vector tests (local packages)
-        if: ${{ !inputs.test-published-packages && matrix.node != '16.x' }}
+        if: ${{ !inputs.test-published-packages && matrix.node != '16.x' && matrix.os != 'windows-latest' }}
         run: npm run verdaccio-verify-publish -- ci
       
       # Run vector tests against published packages (release workflow validation, Ubuntu only)
       - name: Run vector tests (published packages)
-        if: ${{ inputs.test-published-packages && matrix.node != '16.x' }}
+        if: ${{ inputs.test-published-packages && matrix.node != '16.x' && matrix.os != 'windows-latest' }}
         run: npm run verdaccio-verify-publish -- public
