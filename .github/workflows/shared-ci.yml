@@ -24,10 +24,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
           cache: 'npm'
 
       # - name: Configure AWS Credentials for Tests
@@ -43,13 +43,13 @@ jobs:
       - name: Build (for source code testing)
         if: ${{ !inputs.test-published-packages }}
         run: npm run build
-
-      - run: npm test
       
       # Run vector tests for all CI runs (Ubuntu only)
       - name: Publish locally for vector tests
         if: ${{ !inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
         run: npm run verdaccio-publish
+
+      - run: npm test
         
       - name: Run vector tests (local packages)
         if: ${{ !inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
