@@ -22,11 +22,28 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         node: [16, 18, 20]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
-      - uses: bahmutov/npm-install@v1
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # - name: Configure AWS Credentials for Tests
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     aws-region: us-west-2
+      #     role-to-assume: arn:aws:iam::370957321024:role/GitHub-CI-MPL-Dafny-Role-us-west-2
+      #     role-session-name: JavaScriptTests
+
+      - name: Install dependencies
+        run: npm ci --unsafe-perm
+
+      - name: Build (for source code testing)
+        if: ${{ !inputs.test-published-packages }}
+        run: npm run build
+
       - run: npm test
       
       # Run vector tests for all CI runs (Ubuntu only)
