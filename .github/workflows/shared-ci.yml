@@ -30,17 +30,14 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'npm'
 
-      # - name: Configure AWS Credentials for Tests
-      #   uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     aws-region: us-west-2
-      #     role-to-assume: arn:aws:iam::370957321024:role/GitHub-CI-MPL-Dafny-Role-us-west-2
-      #     role-session-name: JavaScriptTests
-
-      - name: Install dependencies
+      - name: Install local dependencies
+        if: ${{ !inputs.test-published-packages }}
         run: npm ci --unsafe-perm
 
-      - run: npm test
+      # This only works for local code, testing published packages requires setup
+      - name: Test local code
+        if: ${{ !inputs.test-published-packages }}
+        run: npm test
 
       - name: Build (for source code testing)
         if: ${{ !inputs.test-published-packages }}
