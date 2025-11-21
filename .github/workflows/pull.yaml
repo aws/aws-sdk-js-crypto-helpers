@@ -1,5 +1,7 @@
 # This workflow runs for every pull request
 name: PR CI
+permissions:
+  contents: read
 
 on:
   pull_request:
