@@ -7,7 +7,7 @@ on:
         description: 'Test against published packages instead of checked out code'
         required: false
         type: boolean
-        default: true
+        default: false
 
 env:
   NODE_OPTIONS: "--max-old-space-size=4096"
