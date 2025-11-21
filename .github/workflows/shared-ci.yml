@@ -14,46 +14,31 @@ env:
   NPM_CONFIG_UNSAFE_PERM: true
 
 jobs:
-  test:
+  ci-unit-tests:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: ['16.x', '18.x', '20.x', 'latest']
-        # Determine test categories based on whether testing published packages or source code:
-        # - Testing published packages: only run vector tests (don't have build artifacts to test coverage)
-        # - Testing source code: run unit tests and vector tests
-        test-category: ${{ fromJSON(inputs['test-published-packages'] && '["vectors"]' || '["unit", "vectors"]') }}
-    name: test-${{ matrix.test-category }}-${{ matrix.os }}-${{ matrix.node-version }}
+        node: [16, 18, 20]
     steps:
-      - name: Checkout code
-        # Always need repo for test scripts and configuration, even when testing published packages
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          fetch-depth: 0
-
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci --unsafe-perm
-
-      - name: Build (for source code testing)
-        if: ${{ !inputs.test-published-packages }}
-        run: npm run build
-
-      - name: Run unit tests
-        if: ${{ matrix.test-category == 'unit' }}
-        run: npm test
-
+          node-version: ${{ matrix.node }}
+      - uses: bahmutov/npm-install@v1
+      - run: npm test
+      
+      # Run vector tests for all CI runs
       - name: Publish locally for vector tests
-        if: ${{ matrix.test-category == 'vectors' && !inputs.test-published-packages }}
+        if: ${{ !inputs.test-published-packages }}
         run: npm run verdaccio-publish
-
-      - name: Run vector tests
-        if: ${{ matrix.test-category == 'vectors' }}
-        run: npm run verdaccio-verify-publish -- ${{ inputs.test-published-packages && 'public' || 'ci' }}
+        
+      - name: Run local test (local packages)
+        if: ${{ !inputs.test-published-packages }}
+        run: npm run verdaccio-verify-publish -- ci
+      
+      # Run vector tests against published packages (release workflow validation)
+      - name: Run vector tests (published packages)
+        if: ${{ inputs.test-published-packages }}
+        run: npm run verdaccio-verify-publish -- public
