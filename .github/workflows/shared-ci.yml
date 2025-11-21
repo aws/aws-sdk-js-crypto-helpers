@@ -40,11 +40,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --unsafe-perm
 
+      - run: npm test
+
       - name: Build (for source code testing)
         if: ${{ !inputs.test-published-packages }}
         run: npm run build
-
-      - run: npm test
       
       # Run vector tests for all CI runs (Ubuntu only)
       # Verdaccio is only supported on Node.js v18 and higher
