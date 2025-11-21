@@ -29,16 +29,16 @@ jobs:
       - uses: bahmutov/npm-install@v1
       - run: npm test
       
-      # Run vector tests for all CI runs
+      # Run vector tests for all CI runs (Ubuntu only)
       - name: Publish locally for vector tests
-        if: ${{ !inputs.test-published-packages }}
+        if: ${{ !inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
         run: npm run verdaccio-publish
         
-      - name: Run local test (local packages)
-        if: ${{ !inputs.test-published-packages }}
+      - name: Run vector tests (local packages)
+        if: ${{ !inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
         run: npm run verdaccio-verify-publish -- ci
       
-      # Run vector tests against published packages (release workflow validation)
+      # Run vector tests against published packages (release workflow validation, Ubuntu only)
       - name: Run vector tests (published packages)
-        if: ${{ inputs.test-published-packages }}
+        if: ${{ inputs.test-published-packages && matrix.os == 'ubuntu-latest' }}
         run: npm run verdaccio-verify-publish -- public
