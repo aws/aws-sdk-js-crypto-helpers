@@ -1,0 +1,59 @@
+name: Shared CI Tests
+
+on:
+  workflow_call:
+    inputs:
+      test-published-packages:
+        description: 'Test against published packages instead of checked out code'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  NODE_OPTIONS: "--max-old-space-size=4096"
+  NPM_CONFIG_UNSAFE_PERM: true
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: ['16.x', '18.x', '20.x', 'latest']
+        # Determine test categories based on whether testing published packages or source code:
+        # - Testing published packages: only run vector tests (don't have build artifacts to test coverage)
+        # - Testing source code: run unit tests and vector tests
+        test-category: ${{ fromJSON(inputs['test-published-packages'] && '["vectors"]' || '["unit", "vectors"]') }}
+    name: test-${{ matrix.test-category }}-${{ matrix.os }}-${{ matrix.node-version }}
+    steps:
+      - name: Checkout code
+        # Always need repo for test scripts and configuration, even when testing published packages
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --unsafe-perm
+
+      - name: Build (for source code testing)
+        if: ${{ !inputs.test-published-packages }}
+        run: npm run build
+
+      - name: Run unit tests
+        if: ${{ matrix.test-category == 'unit' }}
+        run: npm test
+
+      - name: Publish locally for vector tests
+        if: ${{ matrix.test-category == 'vectors' && !inputs.test-published-packages }}
+        run: npm run verdaccio-publish
+
+      - name: Run vector tests
+        if: ${{ matrix.test-category == 'vectors' }}
+        run: npm run verdaccio-verify-publish -- ${{ inputs.test-published-packages && 'public' || 'ci' }}

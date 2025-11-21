@@ -7,4 +7,4 @@ on:
 
 jobs:
   daily-ci-js-helpers:
-      uses: ./.github/workflows/ci-unit-tests.yaml
+      uses: ./.github/workflows/shared-ci.yml

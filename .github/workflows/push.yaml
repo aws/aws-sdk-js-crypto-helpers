@@ -8,4 +8,4 @@ on:
 
 jobs:
   push-ci-js-helpers-test:
-    uses: ./.github/workflows/ci-unit-tests.yaml
+    uses: ./.github/workflows/shared-ci.yml
