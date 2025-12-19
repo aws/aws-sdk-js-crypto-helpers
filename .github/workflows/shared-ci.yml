@@ -1,4 +1,6 @@
 name: Shared CI Tests
+permissions:
+  contents: read
 
 on:
   workflow_call:
