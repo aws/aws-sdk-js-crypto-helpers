@@ -1,5 +1,7 @@
 # This workflow runs for every push to master
 name: Push CI
+permissions:
+  contents: read
 
 on:
   push:
@@ -8,4 +10,4 @@ on:
 
 jobs:
   push-ci-js-helpers-test:
-    uses: ./.github/workflows/ci-unit-tests.yaml
+    uses: ./.github/workflows/shared-ci.yml
