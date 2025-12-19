@@ -1,5 +1,7 @@
 # This workflow runs for every push to master
 name: Push CI
+permissions:
+  contents: read
 
 on:
   push:
