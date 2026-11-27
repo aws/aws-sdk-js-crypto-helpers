@@ -23,7 +23,7 @@
     "@aws-crypto/util": "file:../util",
     "@aws-sdk/types": "~3.413.0",
     "@aws-sdk/util-locate-window": "^3.0.0",
-    "@smithy/util-utf8": "^2.0.0",
+    "@smithy/util-utf8": "^4.5.2",
     "tslib": "~2.6.2"
   },
   "main": "./build/main/index.js",
